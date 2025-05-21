@@ -40,7 +40,7 @@ export default function Header() {
                             <li>
                                 <Link
                                     href="/about"
-                                    className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-gray-200 transition hover:text-indigo-400 lg:px-3"
+                                    className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-white transition hover:text-indigo-400 lg:px-3"
                                 >
                                     About
                                 </Link>
@@ -48,7 +48,7 @@ export default function Header() {
                             <li>
                                 <Link
                                     href="/portfolio"
-                                    className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-gray-200 transition hover:text-indigo-400 lg:px-3"
+                                    className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-white transition hover:text-indigo-400 lg:px-3"
                                 >
                                     Portfolio
                                 </Link>
@@ -56,7 +56,7 @@ export default function Header() {
                             <li>
                                 <Link
                                     href="/contact"
-                                    className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-gray-200 transition hover:text-indigo-400 lg:px-3"
+                                    className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-white transition hover:text-indigo-400 lg:px-3"
                                 >
                                     Contact
                                 </Link>
@@ -71,7 +71,7 @@ export default function Header() {
                                 <li>
                                     <Link
                                         href="/about"
-                                        className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-gray-200 transition hover:text-indigo-400"
+                                        className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-white transition hover:text-indigo-400"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         About
@@ -80,7 +80,7 @@ export default function Header() {
                                 <li>
                                     <Link
                                         href="/portfolio"
-                                        className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-gray-200 transition hover:text-indigo-400"
+                                        className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-white transition hover:text-indigo-400"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         Portfolio
@@ -89,7 +89,7 @@ export default function Header() {
                                 <li>
                                     <Link
                                         href="/contact"
-                                        className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-gray-200 transition hover:text-indigo-400"
+                                        className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-white transition hover:text-indigo-400"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         Contact
