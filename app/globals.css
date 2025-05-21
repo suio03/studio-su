@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
+    --font-nerko-one: "Nerko One", cursive; /* Define the font variable if you want to use it */
+    --font-bellota-text: "Bellota Text", cursive;
+    --font-coming-soon: "Coming Soon", cursive;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #64a7b4;
+        --foreground: #ededed;
+    }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-nerko-one);
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom, #B492C0 50%, #64A7B4 50%);
+    background-size: 100% 100%;
+    position: relative;
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: #B492C0; /* Purple top */
+    clip-path: ellipse(90% 700% at 50% 30%);
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 29%;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: #64A7B4;   
+    background-size: 200px 200px, 150px 150px, 100px 100px;
+    clip-path: ellipse(57% 70% at 50% 70%);
+    z-index: -1;
+}
+
+.font-bellota {
+    font-family: var(--font-bellota-text);
+}
+
+.font-nerko {
+    font-family: var(--font-nerko-one);
+}
+
+.font-coming-soon {
+    font-family: var(--font-coming-soon);
 }
