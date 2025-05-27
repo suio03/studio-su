@@ -3,7 +3,7 @@ import Image from "next/image"
 import ContactImage from "@/public/contact.svg"
 const Contact = () => {
     return (
-        <div className="pt-24 sm:pt-48 bg-[#B492C0] min-h-screen px-4">
+        <div className="pt-24 sm:pt-48 min-h-screen px-4">
             <div className="max-w-4xl mx-auto">
                 <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-y-8 md:gap-x-18 px-0 sm:px-4">
                     <div className="w-full bg-white/50 px-6 sm:px-12 py-8 sm:py-12 rounded-3xl">
@@ -18,7 +18,7 @@ const Contact = () => {
                     </div>
                     <div className="flex flex-col items-center w-full md:w-2/3">
                         <Image src={ContactImage} alt="Contact" className="w-3/4 md:w-auto" />
-                        <p className="text-4xl sm:text-8xl font-nerko text-[#CFD772] text-center">
+                        <p className="text-4xl sm:text-8xl font-nerko text-[#B492C0] text-center">
                             I&apos;d love to hear from U!
                         </p>
                     </div>

@@ -3,12 +3,14 @@ import Link from "next/link"
 import Logo from "@/public/logo.svg"
 import Image from "next/image"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const pathname = usePathname()
 
     return (
-        <header className={`fixed w-full z-30 transition-all duration-300 bg-[#B492C0]`}>
+        <header className={`fixed w-full z-30 transition-all duration-300 bg-[#EBC8C6]`}>
             <div className="mx-auto max-w-6xl px-2">
                 <div className="relative flex h-14 items-center justify-between gap-3 px-3">
                     {/* Site branding */}
@@ -20,7 +22,7 @@ export default function Header() {
 
                     {/* Mobile menu button */}
                     <button
-                        className="md:hidden text-gray-200 hover:text-indigo-400"
+                        className="md:hidden text-gray-200 hover:text-[#CFD772]"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
                         <span className="sr-only">Menu</span>
@@ -40,7 +42,9 @@ export default function Header() {
                             <li>
                                 <Link
                                     href="/about"
-                                    className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-white transition hover:text-indigo-400 lg:px-3"
+                                    className={`flex items-center font-bold text-xl rounded-full hover:underline px-2 py-1 transition hover:text-white hover:bg-[#CFD772] lg:px-3 ${
+                                        pathname === '/about' ? 'bg-[#CFD772]' : 'text-white'
+                                    }`}
                                 >
                                     About
                                 </Link>
@@ -48,7 +52,9 @@ export default function Header() {
                             <li>
                                 <Link
                                     href="/portfolio"
-                                    className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-white transition hover:text-indigo-400 lg:px-3"
+                                    className={`flex items-center font-bold text-xl rounded-full hover:underline px-2 py-1 transition hover:text-white hover:bg-[#CFD772] lg:px-3 ${
+                                        pathname === '/portfolio' ? 'bg-[#CFD772]' : 'text-white'
+                                    }`}
                                 >
                                     Portfolio
                                 </Link>
@@ -56,7 +62,9 @@ export default function Header() {
                             <li>
                                 <Link
                                     href="/contact"
-                                    className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-white transition hover:text-indigo-400 lg:px-3"
+                                    className={`flex items-center font-bold text-xl rounded-full hover:underline px-2 py-1 transition hover:text-white hover:bg-[#CFD772] lg:px-3 ${
+                                        pathname === '/contact' ? 'bg-[#CFD772]' : 'text-white'
+                                    }`}
                                 >
                                     Contact
                                 </Link>
@@ -71,7 +79,9 @@ export default function Header() {
                                 <li>
                                     <Link
                                         href="/about"
-                                        className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-white transition hover:text-indigo-400"
+                                        className={`flex items-center font-bold text-xl hover:underline px-2 py-1 transition hover:text-indigo-400 ${
+                                            pathname === '/about' ? 'text-[#CFD772]' : 'text-white'
+                                        }`}
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         About
@@ -80,7 +90,9 @@ export default function Header() {
                                 <li>
                                     <Link
                                         href="/portfolio"
-                                        className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-white transition hover:text-indigo-400"
+                                        className={`flex items-center font-bold text-xl hover:underline px-2 py-1 transition hover:text-indigo-400 ${
+                                            pathname === '/portfolio' ? 'text-[#CFD772]' : 'text-white'
+                                        }`}
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         Portfolio
@@ -89,7 +101,9 @@ export default function Header() {
                                 <li>
                                     <Link
                                         href="/contact"
-                                        className="flex items-center font-bold text-xl hover:underline px-2 py-1 text-white transition hover:text-indigo-400"
+                                        className={`flex items-center font-bold text-xl hover:underline px-2 py-1 transition hover:text-indigo-400 ${
+                                            pathname === '/contact' ? 'text-[#CFD772]' : 'text-white'
+                                        }`}
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         Contact

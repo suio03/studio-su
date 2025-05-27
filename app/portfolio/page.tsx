@@ -9,14 +9,14 @@ const Portfolio = () => {
         window.location.href = "/portfolio/rspca"
     }
     return (
-        <div className="py-16 sm:py-24 bg-[#B492C0] min-h-screen px-4">
+        <div className="py-16 sm:py-24 min-h-screen px-4">
             <div className="max-w-4xl mx-auto">
                 <div className="flex flex-col sm:flex-row sm:justify-center items-center max-w-3xl mx-auto gap-x-12 sm:mt-12">
                     <div className="flex flex-col items-center w-full sm:w-1/2 pt-12 sm:pt-36">
-                        <p className="text-5xl sm:text-7xl font-nerko text-[#CFD772] text-center">
+                        <p className="text-5xl sm:text-7xl font-nerko text-[#B492C0] text-center">
                             Show time!
                         </p>
-                        <p className="pt-4 font-coming-soon text-white text-center">
+                        <p className="pt-4 font-coming-soon text-black/80 text-center">
                             Here&apos;s a collection of thoughtful and playful design projects I&apos;ve crafted with care.
                             Each one solves a real problem — and adds a little joy along the way. Scroll down to explore!
                         </p>
