@@ -6,7 +6,6 @@ import MovingService02 from "@/public/moving/moving02.png"
 import MovingService03 from "@/public/moving/moving03.png"
 import MovingService04 from "@/public/moving/moving04.png"
 import MovingService05 from "@/public/moving/moving05.png"
-import MovingService06 from "@/public/moving/moving06.png"
 import MovingService07 from "@/public/moving/moving07.png"
 export const runtime = 'edge'
 const MovingService = () => {
@@ -88,7 +87,15 @@ const MovingService = () => {
                             A clear information architecture and intuitive user flows were designed to guide users seamlessly through the platform, from browsing services to completing a request.
                         </p>
                     </div>
-                    <Image src={MovingService06} alt="MovingService06" className="w-3/5 px-4" height={600} width={600} />
+                    <video 
+                        src="/assets/postrequest.mov" 
+                        className="w-3/5 px-4" 
+                        height={600} 
+                        width={600}
+                        controls
+                        autoPlay
+                        loop
+                    />
                 </div>
                 <div className="flex flex-col py-8 rounded-3xl px-4">
                     <p className="text-white text-3xl sm:text-4xl my-6 font-nerko text-center md:text-left">
