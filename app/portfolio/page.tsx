@@ -8,6 +8,9 @@ const Portfolio = () => {
     const onClick = () => {
         window.location.href = "/portfolio/rspca"
     }
+    const onClick02 = () => {
+        window.location.href = "/portfolio/habit-tracker"
+    }
     return (
         <div className="py-16 sm:py-24 min-h-screen px-4">
             <div className="max-w-4xl mx-auto">
@@ -25,7 +28,7 @@ const Portfolio = () => {
                 </div>
                 <div className="flex flex-col items-center gap-y-8 sm:gap-y-12 mt-16 sm:mt-24">
                     <Image src={PortfolioImage02} alt="Portfolio02" className="w-full sm:w-4/5 hover:cursor-pointer" height={600} width={600} onClick={onClick} />
-                    <Image src={PortfolioImage01} alt="Portfolio01" className="w-full sm:w-4/5" height={600} width={600}  />
+                    <Image src={PortfolioImage01} alt="Portfolio01" className="w-full sm:w-4/5 hover:cursor-pointer" height={600} width={600} onClick={onClick02} />
                     <div className="flex flex-col items-center bg-white/50 px-6 sm:px-12 py-8 sm:py-12 rounded-3xl w-full sm:w-4/5 h-48 sm:h-64">
                     </div>
                     <div className="flex flex-col items-center bg-white/50 px-6 sm:px-12 py-8 sm:py-12 rounded-3xl w-full sm:w-4/5 h-48 sm:h-64">
