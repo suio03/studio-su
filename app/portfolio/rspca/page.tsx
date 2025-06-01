@@ -32,9 +32,9 @@ const Portfolio = () => {
     return (
         <div className="py-16 sm:py-24 min-h-screen">
             <div className="max-w-4xl mx-auto p-4">
-                <div className="flex flex-col md:flex-row items-center py-8 sm:py-12 rounded-3xl gap-x-12 px-4">
-                    <div className="w-full">
-                        <p className="text-[#B492C0] text-3xl sm:text-4xl font-nerko mt-12 mb-6 text-center sm:text-left">
+                <div className="flex flex-col md:flex-row items-center py-8 sm:py-12 rounded-3xl  px-4">
+                    <div className="w-1/2">
+                        <p className="text-[#B492C0] text-3xl sm:text-4xl font-nerko mb-6 text-center sm:text-left">
                             RSPCA Pet Care App Design
                         </p>
                         <div className="w-full md:mt-24 mt-0">
@@ -57,7 +57,7 @@ const Portfolio = () => {
                             </ul>
                         </div>
                     </div>
-                    <Image src={Rsp01} alt="Rsp01" className="w-full" height={500} width={500} />
+                    <Image src={Rsp01} alt="Rsp01" className="w-1/2" height={500} width={500} />
                 </div>
                 <div className="flex flex-col md:flex-row items-start md:items-center py-8 sm:py-12 rounded-3xl gap-x-12 px-4">
                     <div className="w-full">
