@@ -1,6 +1,7 @@
 'use client'
 import React from "react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import Rsp04 from "@/public/rsp04.png"
 import Habit01 from "@/public/habit/habit01.png"
 import Habit02 from "@/public/habit/habit02.png"
@@ -12,6 +13,7 @@ import Habit07 from "@/public/habit/habit07.png"
 import Habit08 from "@/public/habit/habit08.png"
 export const runtime = 'edge'
 const HabitTracker = () => {
+    const router = useRouter()
     // const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
     // const nextImage = () => {
@@ -29,6 +31,15 @@ const HabitTracker = () => {
     return (
         <div className="py-16 sm:py-24 min-h-screen">
             <div className="max-w-4xl mx-auto p-4">
+                {/* Back button */}
+                <button 
+                    onClick={() => router.back()} 
+                    className="flex items-center text-black font-bellota text-lg mb-8 hover:opacity-70 transition-opacity"
+                >
+                    <span className="mr-2">←</span>
+                    back
+                </button>
+                
                 <div className="flex flex-col md:flex-row items-center py-8 sm:py-12 rounded-3xl gap-x-24 px-4">
                     <Image src={Habit01} alt="Habit01" className="w-2/5" height={500} width={500} />
 
@@ -82,11 +93,11 @@ const HabitTracker = () => {
                             Research
                         </p>
                         <p className="text-black font-bellota">
-                            <span className="font-bold block mb-8">
+                            <span className="font-bold block">
                                 To understand user needs for habit tracking, we conducted quantitative research (online survey with 20 users, age 18-60) and developed user personas.
                             </span>
                             <br />
-                            Key Findings: Users prioritize an intuitive interface (90%), desire personalized options (75%), and value features that support positive habit cultivation (85%). Privacy and security are also significant concerns (95%). Core user needs include integrated tracking, customization, and motivational incentives.
+                            Key Findings: Users prioritize an intuitive interface (90%), desire personalized options (75%), and value features that support positive habit cultivation (85%). Privacy and security are also significant concerns (95%). Core user needs include integrated tracking, customization, and motivational incentives.
                         </p>
                     </div>
                 </div>

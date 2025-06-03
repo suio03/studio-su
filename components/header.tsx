@@ -2,21 +2,34 @@
 import Link from "next/link"
 import Logo from "@/public/logo.svg"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false)
     const pathname = usePathname()
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.scrollY
+            setIsScrolled(scrollTop > 50)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
     return (
-        <header className={`fixed w-full z-30 transition-all duration-300 bg-[#EBC8C6]`}>
-            <div className="mx-auto max-w-6xl px-2">
+        <header className={`fixed w-full z-30 transition-all duration-300 ${
+            isScrolled ? 'bg-[#EBC8C6]/10 backdrop-blur-sm' : 'bg-[#EBC8C6]'
+        }`}>
+            <div className="mx-auto max-w-6xl px-2 py-2">
                 <div className="relative flex h-14 items-center justify-between gap-3 px-3">
                     {/* Site branding */}
                     <div className="flex flex-1 items-center">
                         <Link href="/">
-                            <Image src={Logo.src} alt="Logo" className="w-24 h-24 -mt-2" width={200} height={200} />
+                            <Image src={Logo.src} alt="Logo" className="w-36 h-36" width={200} height={200} />
                         </Link>
                     </div>
 

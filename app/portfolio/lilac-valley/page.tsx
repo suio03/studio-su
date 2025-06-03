@@ -1,6 +1,7 @@
 'use client'
 import React from "react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import LilacValley01 from "@/public/lilac/lilac01.png"
 import LilacValley02 from "@/public/lilac/lilac02.png"
 import LilacValley03 from "@/public/lilac/lilac03.png"
@@ -12,10 +13,20 @@ import LilacValley08 from "@/public/lilac/lilac08.png"
 import LilacValley09 from "@/public/lilac/lilac09.png"
 export const runtime = 'edge'
 const LilacValley = () => {
+    const router = useRouter()
 
     return (
         <div className="py-16 sm:py-24 min-h-screen">
             <div className="max-w-4xl mx-auto p-4">
+                {/* Back button */}
+                <button 
+                    onClick={() => router.back()} 
+                    className="flex items-center text-black font-bellota text-lg mb-8 hover:opacity-70 transition-opacity"
+                >
+                    <span className="mr-2">←</span>
+                    back
+                </button>
+                
                 <div className="flex flex-col md:flex-row items-center py-8 sm:py-12 rounded-3xl px-4">
                     <div className="w-2/5">
                         <p className="text-[#B492C0] text-3xl sm:text-4xl font-nerko mt-12 mb-6 text-center sm:text-left">

@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from "react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import Respca05 from "@/public/respca05.png"
 import Respca07 from "@/public/respca07.png"
 import Respca08 from "@/public/respca08.png"
@@ -14,6 +15,7 @@ import Rsp05 from "@/public/rsp05.png"
 import Rsp06 from "@/public/rsp06.png"
 export const runtime = 'edge'
 const Portfolio = () => {
+    const router = useRouter()
     const carouselImages = [Respca07, Respca08, Respca09, Respca10]
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
@@ -32,6 +34,13 @@ const Portfolio = () => {
     return (
         <div className="py-16 sm:py-24 min-h-screen">
             <div className="max-w-4xl mx-auto p-4">
+                <button 
+                    onClick={() => router.back()} 
+                    className="flex items-center text-black font-bellota text-lg mb-8 hover:opacity-70 transition-opacity"
+                >
+                    <span className="mr-2">←</span>
+                    back
+                </button>
                 <div className="flex flex-col md:flex-row items-center py-8 sm:py-12 rounded-3xl  px-4">
                     <div className="w-1/2">
                         <p className="text-[#B492C0] text-3xl sm:text-4xl font-nerko mb-6 text-center sm:text-left">

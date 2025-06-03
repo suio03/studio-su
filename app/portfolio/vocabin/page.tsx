@@ -1,6 +1,7 @@
 'use client'
 import React from "react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import Vocabin01 from "@/public/vocabin/vocabin01.png"
 import Vocabin02 from "@/public/vocabin/vocabin02.png"
 import Vocabin03 from "@/public/vocabin/vocabin03.png"
@@ -15,10 +16,20 @@ import Vocabin11 from "@/public/vocabin/vocabin11.png"
 import Vocabin12 from "@/public/vocabin/vocabin12.png"
 export const runtime = 'edge'
 const Vocabin = () => {
+    const router = useRouter()
 
     return (
         <div className="py-16 sm:py-24 min-h-screen">
             <div className="max-w-4xl mx-auto p-4">
+                {/* Back button */}
+                <button 
+                    onClick={() => router.back()} 
+                    className="flex items-center text-black font-bellota text-lg mb-8 hover:opacity-70 transition-opacity"
+                >
+                    <span className="mr-2">←</span>
+                    back
+                </button>
+                
                 <div className="flex flex-col md:flex-row items-center py-8 sm:py-12 rounded-3xl gap-x-24 px-4">
                     <div className="w-3/5">
                         <p className="text-[#B492C0] text-3xl sm:text-4xl font-nerko mt-12 mb-6 text-center sm:text-left">
