@@ -39,10 +39,10 @@ const Portfolio = () => {
                     <Image src={Introduction02} alt="Introduction02" className="w-48 sm:w-64 mt-6 sm:mt-0" height={200} width={200} />
                 </div>
                 <div className="flex flex-col items-center gap-y-8 sm:gap-y-12 mt-16 sm:mt-24">
-                    <Image src={PortfolioImage02} alt="Portfolio02" className="w-full sm:w-4/5 hover:cursor-pointer" height={600} width={600} onClick={onClick} />
+                    <Image src={PortfolioImage04} alt="Portfolio04" className="w-full sm:w-4/5 hover:cursor-pointer" height={600} width={600} onClick={onClick04} />
                     <Image src={PortfolioImage01} alt="Portfolio01" className="w-full sm:w-4/5 hover:cursor-pointer" height={600} width={600} onClick={onClick02} />
                     <Image src={PortfolioImage03} alt="Portfolio03" className="w-full sm:w-4/5 hover:cursor-pointer" height={600} width={600} onClick={onClick03} />
-                    <Image src={PortfolioImage04} alt="Portfolio04" className="w-full sm:w-4/5 hover:cursor-pointer" height={600} width={600} onClick={onClick04} />
+                    <Image src={PortfolioImage02} alt="Portfolio02" className="w-full sm:w-4/5 hover:cursor-pointer" height={600} width={600} onClick={onClick} />
                     <Image src={PortfolioImage05} alt="Portfolio05" className="w-full sm:w-4/5 hover:cursor-pointer" height={600} width={600} onClick={onClick05} />
                 </div>
             </div>

@@ -1,0 +1,121 @@
+'use client'
+
+import React, { useEffect, useRef, useState } from 'react'
+
+interface AnimatedLogoProps {
+    className?: string
+}
+
+export default function AnimatedLogo({ className = '' }: AnimatedLogoProps) {
+    const [leftPupilPos, setLeftPupilPos] = useState({ x: 0, y: 0 })
+    const [rightPupilPos, setRightPupilPos] = useState({ x: 0, y: 0 })
+    const logoRef = useRef<SVGSVGElement>(null)
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            if (!logoRef.current) return
+
+            const svg = logoRef.current
+            const svgRect = svg.getBoundingClientRect()
+
+            // Original pupil centers (from the SVG)
+            const leftEyeCenter = { x: 426.5, y: 368 }
+            const rightEyeCenter = { x: 568.057, y: 367.161 }
+
+            // Convert mouse position to SVG coordinates
+            const mouseX = ((e.clientX - svgRect.left) / svgRect.width) * 809
+            const mouseY = ((e.clientY - svgRect.top) / svgRect.height) * 1142
+
+            // Calculate movement for left eye
+            const leftAngle = Math.atan2(mouseY - leftEyeCenter.y, mouseX - leftEyeCenter.x)
+            const leftDistance = Math.min(12, Math.hypot(mouseX - leftEyeCenter.x, mouseY - leftEyeCenter.y) / 20)
+            const leftX = Math.cos(leftAngle) * leftDistance
+            const leftY = Math.sin(leftAngle) * leftDistance
+
+            // Calculate movement for right eye
+            const rightAngle = Math.atan2(mouseY - rightEyeCenter.y, mouseX - rightEyeCenter.x)
+            const rightDistance = Math.min(12, Math.hypot(mouseX - rightEyeCenter.x, mouseY - rightEyeCenter.y) / 20)
+            const rightX = Math.cos(rightAngle) * rightDistance
+            const rightY = Math.sin(rightAngle) * rightDistance
+
+            setLeftPupilPos({ x: leftX, y: leftY })
+            setRightPupilPos({ x: rightX, y: rightY })
+        }
+
+        window.addEventListener('mousemove', handleMouseMove)
+        return () => window.removeEventListener('mousemove', handleMouseMove)
+    }, [])
+
+    return (
+        <svg
+            ref={logoRef}
+            width="809"
+            height="1142"
+            viewBox="0 0 809 1142"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={className}
+        >
+            {/* Main "S" shape */}
+            <path
+                d="M276 395.8C257.867 395.8 244 393.667 234.4 389.4C224.8 384.6 217.867 379.267 213.6 373.4C209.867 367.533 207.733 362.2 207.2 357.4C206.667 352.067 206.4 348.867 206.4 347.8C206.4 345.133 205.333 340.867 203.2 335C201.6 328.6 196.267 325.4 187.2 325.4C172.267 325.4 158.933 329.933 147.2 339C136 348.067 129.867 361.4 128.8 379C127.733 396.6 132.267 411.8 142.4 424.6C152.533 437.4 172.533 444.067 202.4 444.6C217.333 444.6 233.067 446.733 249.6 451C266.133 455.267 281.6 462.2 296 471.8C310.933 480.867 322.667 493.4 331.2 509.4C340.267 524.867 344.8 544.333 344.8 567.8C344.267 614.733 331.733 651 307.2 676.6C282.667 702.2 241.867 715 184.8 715C146.933 715 116.533 710.467 93.6 701.4C70.6667 691.8 53.8667 680.6 43.2 667.8C33.0667 655 27.7333 643.533 27.2 633.4C26.6667 623.267 27.2 613.4 28.8 603.8C30.9333 594.2 36.5333 585.933 45.6 579C55.2 572.067 70.4 567.8 91.2 566.2C112.533 564.6 127.733 566.467 136.8 571.8C145.867 576.6 151.467 582.2 153.6 588.6C156.267 595 157.6 599 157.6 600.6C157.6 602.2 158.133 606.2 159.2 612.6C160.8 618.467 163.467 624.333 167.2 630.2C171.467 635.533 177.333 638.2 184.8 638.2C196 638.2 205.6 633.667 213.6 624.6C221.6 615.533 226.667 600.867 228.8 580.6C232.533 540.6 212.533 520.6 168.8 520.6C158.133 520.6 144.267 519 127.2 515.8C110.667 512.067 94.1333 505.667 77.6 496.6C61.0667 487 47.2 473.667 36 456.6C24.8 439.533 19.4667 417.133 20 389.4C20.5333 361.667 25.6 339 35.2 321.4C44.8 303.267 57.3333 289.4 72.8 279.8C88.8 269.667 106.133 262.467 124.8 258.2C144 253.933 162.933 251.533 181.6 251C206.667 250.467 230.667 253.4 253.6 259.8C277.067 266.2 296.533 276.067 312 289.4C328 302.2 337.067 319 339.2 339.8C340.8 355.267 338.4 367 332 375C326.133 382.467 318.667 387.8 309.6 391C301.067 393.667 293.333 395.267 286.4 395.8C279.467 395.8 276 395.8 276 395.8Z"
+                fill="#CFD772"
+            />
+            {/* "ü" curve and accent */}
+            <path
+                d="M415.228 498.404C416.059 689.841 643.182 765.76 682.488 491.275"
+                stroke="#CFD772"
+                strokeWidth="80"
+                strokeLinecap="round"
+            />
+            <line
+                x1="665.606"
+                y1="464.83"
+                x2="719.089"
+                y2="485.169"
+                stroke="#CFD772"
+                strokeWidth="80"
+                strokeLinecap="round"
+            />
+            {/* Eye whites */}
+            <line
+                x1="459"
+                y1="399.22"
+                x2="459"
+                y2="342"
+                stroke="white"
+                strokeWidth="80"
+                strokeLinecap="round"
+            />
+            <line
+                x1="603.946"
+                y1="399.22"
+                x2="603.946"
+                y2="342"
+                stroke="white"
+                strokeWidth="80"
+                strokeLinecap="round"
+            />
+            {/* Animated pupils */}
+            <ellipse
+                cx={426.5 + leftPupilPos.x}
+                cy={368 + leftPupilPos.y}
+                rx="29.5"
+                ry="29"
+                fill="#010101"
+                style={{
+                    transition: 'cx 0.1s ease-out, cy 0.1s ease-out'
+                }}
+            />
+            <circle
+                cx={568.057 + rightPupilPos.x}
+                cy={367.161 + rightPupilPos.y}
+                r="28.5"
+                fill="#010101"
+                style={{
+                    transition: 'cx 0.1s ease-out, cy 0.1s ease-out'
+                }}
+            />
+        </svg>
+    )
+}

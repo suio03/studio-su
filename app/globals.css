@@ -42,3 +42,60 @@ body {
 .font-coming-soon {
     font-family: var(--font-coming-soon);
 }
+
+/* Landing ellipse via SVG */
+.landing {
+    position: relative;
+    color: #1f2937;
+    min-height: 100vh;
+}
+
+.landing-curve {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.landing-curve-image {
+    position: absolute !important;
+    top: clamp(-280px, -18vw, -140px);
+    left: 50%;
+    width: clamp(1100px, 130vw, 1700px);
+    height: auto;
+    transform: translateX(-50%);
+    object-fit: contain;
+}
+
+.landing-logo {
+    position: relative;
+    z-index: 10;
+    padding-top: clamp(140px, 18vw, 220px);
+    display: flex;
+    justify-content: center;
+}
+
+.landing-logo-image {
+    filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.2));
+}
+
+.landing-body {
+    position: relative;
+    z-index: 5;
+    background: transparent;
+    margin-top: clamp(40px, 9vw, 120px);
+    padding-top: clamp(200px, 24vw, 320px);
+}
+
+.landing-body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    top: clamp(140px, 18vw, 220px);
+    background: #64A7B4;
+    border-top-left-radius: clamp(220px, 26vw, 320px);
+    border-top-right-radius: clamp(220px, 26vw, 320px);
+    z-index: -1;
+}

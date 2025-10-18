@@ -19,37 +19,37 @@ const LilacValley = () => {
         <div className="py-16 sm:py-24 min-h-screen">
             <div className="max-w-4xl mx-auto p-4">
                 {/* Back button */}
-                <button 
-                    onClick={() => router.back()} 
+                <button
+                    onClick={() => router.back()}
                     className="flex items-center text-black font-bellota text-lg mb-8 hover:opacity-70 transition-opacity"
                 >
                     <span className="mr-2">←</span>
                     back
                 </button>
-                
-                <div className="flex flex-col md:flex-row items-center py-8 sm:py-12 rounded-3xl px-4">
-                    <div className="w-2/5">
-                        <p className="text-[#B492C0] text-3xl sm:text-4xl font-nerko mt-12 mb-6 text-center sm:text-left">
+
+                <div className="items-center pb-8 rounded-3xl bg-[#ffffff]/30">
+                    <Image src={LilacValley01} alt="LilacValley01" className="w-full" height={500} width={500} />
+                    <div className="w-full text-center rounded-3xl">
+                        <p className="text-[#B492C0] text-3xl sm:text-4xl font-nerko mt-12 mb-6 text-center">
                             Lilac Valley - Farm Stay Website Design
                         </p>
-                        <div className="w-full">
-                            <p className="text-white text-3xl sm:text-4xl my-6 font-nerko text-center md:text-left">
+                        <div className="w-full p-4 rounded-3xl">
+                            <p className="text-white text-3xl sm:text-4xl my-6 font-nerko">
                                 What I did
                             </p>
-                            <ul className="ml-4 text-black md:list-disc list-none font-bellota text-center md:text-left">
+                            <ul className="ml-4 text-black list-none font-bellota">
                                 <li>
-                                    UX Research
+                                    1. UX Research
                                 </li>
                                 <li>
-                                    UI Design(Include phone screen size)
+                                    2. UI Design(Include phone screen size)
                                 </li>
                                 <li>
-                                    Frontend Development
+                                    3. Frontend Development
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <Image src={LilacValley01} alt="LilacValley01" className="w-3/5" height={500} width={500} />
 
                 </div>
                 <div className="flex flex-col md:flex-row items-start md:items-center py-8 sm:py-12 rounded-3xl gap-x-12 px-4">
