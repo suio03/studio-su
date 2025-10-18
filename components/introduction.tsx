@@ -23,17 +23,17 @@ const Introducation = () => {
                     <h2 className="text-2xl sm:text-3xl font-bold text-white font-nerko mb-8">Fresh from the Studio</h2>
                     <p className="text-gray-700 mb-8">A selection of my latest <span className='font-bold underline'>UX case studies, prototypes, and design concepts.</span> Each one shows how I solve problems with clarity, empathy, and a dash of personality.</p>
                     <div className="flex flex-wrap justify-between mt-4 gap-y-4">
-                        <div className="flex flex-col items-center w-1/3 sm:w-auto">
+                        <div className="flex flex-col items-center w-1/3 sm:w-auto gap-y-2">
                             <div className="w-12 h-12 bg-gray-300 rounded-full" />
-                            <span className="text-gray-700">Case one</span>
+                            <Link href="/portfolio/rspca" className="text-gray-700 underline font-bold">RSPCA</Link>
                         </div>
-                        <div className="flex flex-col items-center w-1/3 sm:w-auto">
+                        <div className="flex flex-col items-center w-1/3 sm:w-auto gap-y-2">
                             <div className="w-12 h-12 bg-gray-300 rounded-full" />
-                            <span className="text-gray-700">Case two</span>
+                            <Link href="/portfolio/lilac-valley" className="text-gray-700 underline font-bold">Lilac Valley</Link>
                         </div>
-                        <div className="flex flex-col items-center w-1/3 sm:w-auto">
-                            <div className="w-12 h-12 bg-gray-300 rounded-full" />
-                            <span className="text-gray-700">Case three</span>
+                        <div className="flex flex-col items-center w-1/3 sm:w-auto gap-y-2">
+                            <div className="w-12 h-12 bg-gray-300 rounded-full " />
+                            <Link href="/portfolio/habit-tracker" className="text-gray-700 underline font-bold">Habit Tracker</Link>
                         </div>
                         <div className="flex flex-col items-center w-full sm:w-auto mt-2 sm:mt-0">
                             <div className="w-12 h-12 bg-gray-300/0 rounded-full hidden sm:block" />
