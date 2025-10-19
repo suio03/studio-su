@@ -100,56 +100,59 @@ body {
     z-index: -1;
 }
 
-/* Responsive background display */
-.bg-large {
-    display: block;
+/* Curve-only approach: Clean separation of sections */
+.pink-header {
+    background: #E5C3C3;
 }
 
-.bg-medium {
-    display: none;
+.teal-content {
+    background: #64A7B4;
+    min-height: 100vh;
 }
 
-.bg-portrait {
-    display: none;
+/* Curve SVG positioning with color consistency */
+.curve-container {
+    position: relative;
+    width: 100%;
+    background: #E5C3C3; /* Match header pink color */
 }
 
-/* Medium screens (tablets, small laptops) - 768px to 1024px */
-@media (max-width: 1024px) and (min-width: 769px) {
-    .bg-large {
-        display: none;
+/* Logo positioning on curve - positioned at the curve's peak */
+.logo-on-curve {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+}
+
+/* Responsive logo positioning for different screen sizes */
+@media (max-width: 1024px) {
+    .logo-on-curve {
+        top: -10px;
     }
-    
-    .bg-medium {
-        display: block;
-    }
 }
 
-/* Small screens (phones) - below 768px */
 @media (max-width: 768px) {
-    .bg-large {
-        display: none;
-    }
-    
-    .bg-medium {
-        display: none;
-    }
-    
-    .bg-portrait {
-        display: block;
+    .logo-on-curve {
+        top: -5px;
     }
 }
 
-/* Portrait orientation override - always show portrait version when height > width */
 @media (orientation: portrait) {
-    .bg-large {
-        display: none;
+    .logo-on-curve {
+        top: -15px;
     }
-    
-    .bg-medium {
-        display: none;
+}
+
+/* Responsive curve adjustments */
+@media (max-width: 768px) {
+    .curve-container {
+        /* Curve will scale naturally with SVG viewBox */
     }
-    
-    .bg-portrait {
-        display: block;
+}
+
+@media (orientation: portrait) {
+    .curve-container {
+        /* Curve maintains aspect ratio in portrait */
     }
 }
