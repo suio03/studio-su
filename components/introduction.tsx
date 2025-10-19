@@ -3,6 +3,10 @@ import Image from 'next/image'
 import Introduction01 from '@/public/introduction01.svg'
 import Introduction02 from '@/public/introduction02.svg'
 import Introduction03 from '@/public/introduction03.svg'
+import rspca from '@/public/rspca.svg'
+import lilacvalley from '@/public/lilac.svg'
+import habittracker from '@/public/tracker.svg'
+
 import Link from 'next/link'
 const Introducation = () => {
     return (
@@ -24,15 +28,15 @@ const Introducation = () => {
                     <p className="text-gray-700 mb-8">A selection of my latest <span className='font-bold underline'>UX case studies, prototypes, and design concepts.</span> Each one shows how I solve problems with clarity, empathy, and a dash of personality.</p>
                     <div className="flex flex-wrap justify-between mt-4 gap-y-4">
                         <div className="flex flex-col items-center w-1/3 sm:w-auto gap-y-2">
-                            <div className="w-12 h-12 bg-gray-300 rounded-full" />
+                            <Image src={rspca} alt="RSPCA" width={40} height={40} />
                             <Link href="/portfolio/rspca" className="text-gray-700 underline font-bold">RSPCA</Link>
                         </div>
                         <div className="flex flex-col items-center w-1/3 sm:w-auto gap-y-2">
-                            <div className="w-12 h-12 bg-gray-300 rounded-full" />
+                            <Image src={lilacvalley} alt="Lilac Valley" width={40} height={40} />
                             <Link href="/portfolio/lilac-valley" className="text-gray-700 underline font-bold">Lilac Valley</Link>
                         </div>
                         <div className="flex flex-col items-center w-1/3 sm:w-auto gap-y-2">
-                            <div className="w-12 h-12 bg-gray-300 rounded-full " />
+                            <Image src={habittracker} alt="Habit Tracker" width={40} height={40} />
                             <Link href="/portfolio/habit-tracker" className="text-gray-700 underline font-bold">Habit Tracker</Link>
                         </div>
                         <div className="flex flex-col items-center w-full sm:w-auto mt-2 sm:mt-0">

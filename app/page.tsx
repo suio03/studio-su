@@ -1,5 +1,7 @@
 import React from "react"
-import SubtractBg from "@/public/Subtract.svg"
+import SubtractBgLarge from "@/public/Subtract.svg"
+import SubtractBgMedium from "@/public/Subtract_medium_width.svg"
+import SubtractBgPortrait from "@/public/Subtract_small_width.svg"
 import Image from "next/image"
 import Introduction from "@/components/introduction"
 import AnimatedLogo from "@/components/AnimatedLogo"
@@ -12,10 +14,27 @@ export default function Home() {
 
             {/* Curved hill SVG background */}
             <div className='relative w-full'>
+                {/* Large screens (desktop/laptop) - Subtract.svg */}
                 <Image
-                    className="w-full h-auto"
-                    src={SubtractBg}
-                    alt="Background curve"
+                    className="w-full h-auto bg-large"
+                    src={SubtractBgLarge}
+                    alt="Background curve large"
+                    priority
+                />
+                
+                {/* Medium screens (tablets/small laptops) - Subtract_medium_width.svg */}
+                <Image
+                    className="w-full h-auto bg-medium"
+                    src={SubtractBgMedium}
+                    alt="Background curve medium"
+                    priority
+                />
+                
+                {/* Portrait orientation (taller than wide) - Subtract (2).svg */}
+                <Image
+                    className="w-full h-auto bg-portrait"
+                    src={SubtractBgPortrait}
+                    alt="Background curve portrait"
                     priority
                 />
 

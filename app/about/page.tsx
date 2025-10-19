@@ -43,13 +43,21 @@ const About = () => {
             </div>
             <div className="max-w-3xl mx-auto pb-12">
                 <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start mb-12 gap-4 sm:gap-x-12">
-                    <Link href="/resume" className="bg-[#CFD772] text-white px-4 py-1 rounded-full font-bellota w-36 text-center">
+                    <a 
+                        href="/Resume.pdf" 
+                        download="Suyun_Chen_Resume.pdf"
+                        className="bg-[#CFD772] text-white px-4 py-1 rounded-full font-bellota w-36 text-center hover:bg-[#B8C85A] transition-colors"
+                    >
                         Resume
-                    </Link>
-                    <Link href="/portfolio" className="bg-[#CFD772] text-white px-4 py-1 rounded-full font-bellota w-36 text-center">
+                    </a>
+                    <a 
+                        href="/Suyun Chen Portfolio.pdf" 
+                        download="Suyun_Chen_Portfolio.pdf"
+                        className="bg-[#CFD772] text-white px-4 py-1 rounded-full font-bellota w-36 text-center hover:bg-[#B8C85A] transition-colors"
+                    >
                         Portfolio
-                    </Link>
-                    <Link href="/contact" className="bg-[#CFD772] text-white px-4 py-1 rounded-full font-bellota w-36 text-center">
+                    </a>
+                    <Link href="/contact" className="bg-[#CFD772] text-white px-4 py-1 rounded-full font-bellota w-36 text-center hover:bg-[#B8C85A] transition-colors">
                         Get in touch
                     </Link>
                 </div>

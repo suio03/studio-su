@@ -99,3 +99,57 @@ body {
     border-top-right-radius: clamp(220px, 26vw, 320px);
     z-index: -1;
 }
+
+/* Responsive background display */
+.bg-large {
+    display: block;
+}
+
+.bg-medium {
+    display: none;
+}
+
+.bg-portrait {
+    display: none;
+}
+
+/* Medium screens (tablets, small laptops) - 768px to 1024px */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .bg-large {
+        display: none;
+    }
+    
+    .bg-medium {
+        display: block;
+    }
+}
+
+/* Small screens (phones) - below 768px */
+@media (max-width: 768px) {
+    .bg-large {
+        display: none;
+    }
+    
+    .bg-medium {
+        display: none;
+    }
+    
+    .bg-portrait {
+        display: block;
+    }
+}
+
+/* Portrait orientation override - always show portrait version when height > width */
+@media (orientation: portrait) {
+    .bg-large {
+        display: none;
+    }
+    
+    .bg-medium {
+        display: none;
+    }
+    
+    .bg-portrait {
+        display: block;
+    }
+}
