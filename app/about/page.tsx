@@ -51,7 +51,7 @@ const About = () => {
                         Resume
                     </a>
                     <a 
-                        href="/Suyun Chen Portfolio.pdf" 
+                        href="/api/download-portfolio" 
                         download="Suyun_Chen_Portfolio.pdf"
                         className="bg-[#CFD772] text-white px-4 py-1 rounded-full font-bellota w-36 text-center hover:bg-[#B8C85A] transition-colors"
                     >
