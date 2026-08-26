@@ -23,7 +23,12 @@ const About = () => {
                 </div>
                 <div className="flex justify-center items-center my-8 sm:my-12">
                     <p className="text-black/80 text-base sm:text-xl font-bellota text-center sm:text-left">
-                        I&apos;m Suyun (you can call me Suvin!), the human behind &apos;Studio Su&apos;. Right now, I&apos;m deep in the world of UI/UX design at Curtin University, figuring out how to make digital stuff not just look good, but feel right.
+                        I&apos;m Suyun (you can call me Suvin!), the human behind &apos;Studio Su&apos;.
+                    </p>
+                </div>
+                <div className="flex justify-center items-center mb-8 sm:mb-12">
+                    <p className="text-black/80 text-base sm:text-xl font-bellota text-center sm:text-left">
+                        I&apos;m a UI/UX designer, now working independently as a freelancer — helping figure out how to make digital stuff not just look good, but feel right.
                     </p>
                 </div>
                 <div className="flex justify-center items-center mb-8 sm:mb-12">
