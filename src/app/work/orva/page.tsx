@@ -238,7 +238,6 @@ export default function OrvaCaseStudy() {
       </main>
 
       <footer className={s.foot}>
-        <a href="mailto:hello@studiosu.dev?subject=About%20Orva" target="_blank" rel="noopener" className={s.cta}>Ask me about Orva →</a>
         <a href="/#work" className={s.back}>← Back to all work</a>
       </footer>
     </div>
