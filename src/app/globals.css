@@ -12,6 +12,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 /* The page is drawn on a 1440px canvas and scaled to the window width. */
+.page-root:not(.m) .work-track > .card {
+  zoom: var(--cs, 0.85);
+}
+/* Keep each card's artwork clipped to the card (zoom can otherwise let it paint over neighbours). */
+.work-track > .card,
+.work-track > .card > div {
+  contain: paint;
+}
 .page-root {
   zoom: var(--z, 1);
   overflow-x: clip;

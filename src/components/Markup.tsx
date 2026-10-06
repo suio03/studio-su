@@ -241,7 +241,6 @@ export function Sections({ v }) {
 <div className="tl-title" style={{ width: '380px', flexShrink: '0', paddingTop: '4px' }}><div style={{ fontFamily: v.fDisplay, fontSize: '26px', lineHeight: '1.1', fontWeight: v.fWeight, letterSpacing: '-0.02em' }}>Product designer<span style={{ display: 'inline-flex', alignItems: 'center', height: '24px', padding: '0 10px', marginLeft: '12px', borderRadius: '999px', background: '#FFFFFF', color: '#2B1840', fontFamily: '\'Figtree\', sans-serif', fontSize: '12px', fontWeight: '700', letterSpacing: '0.08em', verticalAlign: 'middle' }}>NOW</span></div><div style={{ marginTop: '8px', fontSize: '15px', fontWeight: '600', letterSpacing: '0.04em', opacity: '0.7' }}>Freelance</div></div>
 <p style={{ flex: '1', margin: '0', paddingTop: '6px', fontSize: '17px', lineHeight: '1.5' }}>Designing SaaS products and client projects. Design is my focus, and I can code it up when that helps.</p>
 </div></div>
-<a href="#" download style={{ alignSelf: 'flex-start', marginTop: '36px', display: 'inline-flex', alignItems: 'center', gap: '10px', height: '48px', padding: '0 24px', borderRadius: '999px', border: `1.5px solid ${v.ink}`, fontSize: '16px', fontWeight: '600', textDecoration: 'none' }}>Download full CV <span>↓</span></a>
 </section>
 
 <section data-sec="contact" className="sec-contact" style={{ position: 'relative', height: `${v.contactH}px`, background: v.ink, color: v.bg, boxSizing: 'border-box', padding: '0 80px 48px', display: 'flex', flexDirection: 'column', fontFamily: '\'Figtree\', sans-serif' }}>

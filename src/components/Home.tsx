@@ -10,7 +10,10 @@ import { Nav, Sections } from './Markup';
 // Design canvas width on narrow screens: 420 on phones, 640 on small tablets.
 const canvasFor = (w: number) => (w < 600 ? 420 : w < 900 ? 640 : 1440);
 const MOBILE_BREAK = 900; // css px
-const OVERFLOW = 5400; // horizontal distance the card track travels
+const CARD_W = 1080; // work card size before scaling
+const CARD_H = 600;
+const CARD_GAP = 40;
+const CARD_SCALE = 0.85; // cards are drawn at 85% on desktop, smaller on short windows
 const LEAD = 450; // scroll before the track starts moving
 const TAIL = 840; // extra scroll that holds on the last card
 const ABOUT_H = 1200;
@@ -116,14 +119,19 @@ export default class Home extends React.Component<object, State> {
   layout() {
     const vh = Math.max(700, this.state.vh);
     const heroH = Math.max(760, vh);
-    const workH = vh + LEAD + OVERFLOW + TAIL;
+    // Card scale: 85% by default, shrinking further so a card always fits the window height.
+    const cs = Math.max(0.6, Math.min(CARD_SCALE, (vh - 250) / CARD_H));
+    const cardStep = CARD_W * cs + CARD_GAP;
+    // Distance the track travels so the last card ends 80px from the right edge.
+    const overflow = Math.max(0, 80 + 5 * cardStep + CARD_W * cs + 80 - 1440);
+    const workH = vh + LEAD + overflow + TAIL;
     const contactH = Math.max(760, vh);
     const T = this.state.tops;
     const aboutTop = T.about ?? heroH + workH;
     const contactTop = T.contact ?? aboutTop + ABOUT_H;
     const workTop = T.work ?? heroH;
-    const trackTop = Math.round(Math.max(150, (vh - 600) / 2 + 70));
-    return { vh, heroH, workH, contactH, workTop, aboutTop, contactTop, trackTop, headTop: trackTop - 100 };
+    const trackTop = Math.round(Math.max(150, (vh - CARD_H * cs) / 2 + 60));
+    return { vh, cs, cardStep, overflow, heroH, workH, contactH, workTop, aboutTop, contactTop, trackTop, headTop: trackTop - 100 };
   }
 
   go(name: string | null) {
@@ -145,11 +153,12 @@ export default class Home extends React.Component<object, State> {
     const rf: Record<string, string> = {};
 
     // Horizontal work track
-    const p = Math.min(1, Math.max(0, (st - L.heroH - LEAD) / OVERFLOW));
-    const tx = -p * OVERFLOW;
+    const p = L.overflow ? Math.min(1, Math.max(0, (st - L.workTop - LEAD) / L.overflow)) : 0;
+    const tx = -p * L.overflow;
 
     // Scribix: scroll the screenshot only while its card is centred, after a short pause
-    const centered = mobile || Math.abs(tx + 2140) < 260;
+    const scribixLeft = 80 + 2 * L.cardStep; // third card
+    const centered = mobile || Math.abs(tx + scribixLeft - (1440 - CARD_W * L.cs) / 2) < 260;
     if (centered) {
       if (!this._scxT) this._scxT = now;
     } else this._scxT = null;
@@ -278,7 +287,7 @@ export default class Home extends React.Component<object, State> {
         ref={this._root}
         className={'page-root' + (this.state.mobile ? ' m' : '')}
         onMouseMove={v.onMove}
-        style={{ background: v.bg, color: v.ink, fontFamily: v.fBody }}
+        style={{ background: v.bg, color: v.ink, fontFamily: v.fBody, ['--cs' as string]: v.cs }}
       >
         <Sections v={v} />
         <Nav v={v} />
