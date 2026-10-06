@@ -33,7 +33,8 @@ export const viewport: Viewport = {
 };
 
 // Sets the page scale before first paint (1440px design canvas, 420px below 900px) so nothing jumps.
-const zoomScript = `(function(){try{var w=document.documentElement.clientWidth||window.innerWidth;document.documentElement.style.setProperty('--z',String(w/(w<600?420:w<900?640:1440)));document.documentElement.style.setProperty('--cw',String((w<600?420:w<900?640:1440)-40));}catch(e){}})();`;
+// Also always start at the top on refresh (browsers otherwise restore the old scroll position).
+const zoomScript = `(function(){try{if('scrollRestoration' in history)history.scrollRestoration='manual';window.scrollTo(0,0);var w=document.documentElement.clientWidth||window.innerWidth;document.documentElement.style.setProperty('--z',String(w/(w<600?420:w<900?640:1440)));document.documentElement.style.setProperty('--cw',String((w<600?420:w<900?640:1440)-40));}catch(e){}})();`;
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
