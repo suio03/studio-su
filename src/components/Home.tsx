@@ -138,7 +138,17 @@ export default class Home extends React.Component<object, State> {
     return (e: React.MouseEvent) => {
       e.preventDefault();
       const el = name ? document.querySelector<HTMLElement>(`[data-sec="${name}"]`) : null;
-      const top = el ? el.getBoundingClientRect().top + window.scrollY : 0;
+      let top = el ? el.getBoundingClientRect().top + window.scrollY : 0;
+      if (el && name === 'about') {
+        // About centres its content in a tall section, so scroll to the content itself:
+        // centred in the window, but never tucked under the floating nav.
+        const first = el.firstElementChild as HTMLElement;
+        const last = el.lastElementChild as HTMLElement;
+        const cTop = first.getBoundingClientRect().top + window.scrollY;
+        const cH = last.getBoundingClientRect().bottom + window.scrollY - cTop;
+        const navSpace = 110 * this.state.zoom;
+        top = cTop - Math.max(navSpace, (window.innerHeight - cH) / 2);
+      }
       window.scrollTo({ top, behavior: this._rm ? 'auto' : 'smooth' });
     };
   }
