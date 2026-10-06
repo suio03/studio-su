@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# studiosu.dev
 
-## Getting Started
-
-First, run the development server:
+Portfolio site for Suyun Chen (Studio Sü) — Next.js App Router, static.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # static site in out/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `src/components/Home.tsx` — page logic: scroll-driven horizontal work track, nav state, hello greeting cycle, eye tracking, card carousels and animation timing.
+- `src/components/Markup.tsx` — page markup, generated from the canvas design (`Fresh.dc.html`) with `scripts/dc2jsx.py`, then hand-adjusted.
+- `src/app/globals.css` — keyframes and shared classes.
+- `public/work/` — project images (WebP).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The page is laid out on a 1440px-wide design canvas and scaled to the window width with CSS `zoom` (`--z`).
+Section heights adapt to the window height. A dedicated mobile layout is still to come.
 
-## Learn More
+## Preview bundle
 
-To learn more about Next.js, take a look at the following resources:
+`preview/entry.tsx` renders the same page without the Next.js runtime, for sharing a live preview link:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npx esbuild preview/entry.tsx --bundle --minify --format=esm --jsx=automatic \
+  --loader:.woff2=file --loader:.woff=file --asset-names=fonts/[name]-[hash] \
+  --outdir=preview-dist --entry-names=app --define:process.env.NODE_ENV='"production"' --alias:@=./src
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Static export. On Cloudflare Pages (or Netlify): build command `npm run build`, output directory `out`.
+Every push to `main` redeploys.

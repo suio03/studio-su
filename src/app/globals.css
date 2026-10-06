@@ -1,0 +1,107 @@
+/* Global styles for studiosu.dev — ported from the canvas design. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #D0D873;
+  -webkit-font-smoothing: antialiased;
+}
+/* The page is drawn on a 1440px canvas and scaled to the window width. */
+.page-root {
+  zoom: var(--z, 1);
+  overflow-x: clip;
+}
+a{color:inherit}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(0.08)}}
+.blink{animation:blink 5s infinite;transform-origin:center}
+@keyframes suLight{0%,100%{color:#FF4FA0}25%{color:#7B5CFF}50%{color:#00B8A9}75%{color:#FF8A00}}
+@keyframes suDark{0%,100%{color:#C8F53A}25%{color:#FF5CAD}50%{color:#8E74FF}75%{color:#22D8C8}}
+@keyframes suElectric{0%,100%{color:#C8F53A}25%{color:#FFB3DE}50%{color:#FFFFFF}75%{color:#5CF0DF}}
+.su-white,.su-sorbet,.su-mint{animation:suLight 6s ease-in-out infinite}
+.su-night{animation:suDark 6s ease-in-out infinite}
+@keyframes suLime{0%,100%{color:#5B2BFF}25%{color:#C2006B}50%{color:#1E3DFF}75%{color:#005F6B}}
+.su-lime,.su-limeOlive{animation:suLime 4s ease-in-out infinite}
+@keyframes suHov{0%,100%{color:#B795C8}25%{color:#64A7B4}50%{color:#DE9199}75%{color:#FFFFFF}}
+.su-rest{color:#B795C8;transition:color .3s ease}
+.su-hov{animation:suHov 4.8s ease-in-out infinite}
+.su-off{animation-delay:-0.8s}
+.su-solid{color:#5B2BFF}
+.su-solid2{color:#C2006B}
+.su-electric{animation:suElectric 6s ease-in-out infinite}
+.float-nav{transition:transform .9s cubic-bezier(.65,0,.35,1), box-shadow .9s ease}
+.nav-link{text-decoration:none;padding:10px 16px;border-radius:999px;transition:opacity .25s ease}
+.nav-link:hover{opacity:.7}
+@keyframes availPulse{0%,100%{box-shadow:0 0 0 0 rgba(155,227,109,.55)}60%{box-shadow:0 0 0 8px rgba(155,227,109,0)}}
+.avail-dot{animation:availPulse 2.4s ease-out infinite}
+.mail-link{background:linear-gradient(currentColor,currentColor) left bottom/0 3px no-repeat;padding-bottom:6px;transition:background-size .4s ease}
+.mail-link:hover{background-size:100% 3px}
+@keyframes buddyBob{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-8px) rotate(-3deg)}}
+.buddy{transition:scale .25s ease}
+.b2{animation-delay:.5s}.b3{animation-delay:1s}
+.buddy:hover{scale:1.12}
+@keyframes robotFloat{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -12px;rotate:4deg}}
+@keyframes robotDrift{0%,100%{translate:0 0;rotate:0deg}50%{translate:6px -8px;rotate:-2deg}}
+@keyframes scxDrift{0%,3%{transform:translateY(0)}47%,53%{transform:translateY(-85%)}94%,100%{transform:translateY(0)}}
+@keyframes pxCol{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@keyframes vocabFloat{0%{opacity:0;transform:translateY(16px) rotate(0deg) scale(.7)}18%{opacity:1}70%{opacity:1}100%{opacity:0;transform:translateY(-70px) rotate(var(--r,10deg)) scale(1)}}
+@keyframes letterFloat{0%,100%{translate:0 0}50%{translate:6px -16px}}
+@keyframes denloMarq{from{transform:translateX(0)}to{transform:translateX(-1284px)}}
+.card-img{transition:transform .5s ease}
+.card:hover .card-img{transform:scale(1.03)}
+
+/* ------------------------------------------------------------------ *
+ * Narrow screens (< 900px). The page switches to a 420px design       *
+ * canvas (scaled to the window by --z) and stacks every section.      *
+ * Inline design styles are overridden here, hence the !important.     *
+ * ------------------------------------------------------------------ */
+.page-root.m .sec-hero { height: auto !important; min-height: calc(100svh / var(--z, 1)); }
+.page-root.m .hero-wrap {
+  position: relative !important; left: auto !important; right: auto !important; top: auto !important;
+  flex-direction: column !important; align-items: flex-start !important; gap: 40px !important;
+  padding: 96px 20px 150px;
+}
+.page-root.m .hero-intro { margin-left: 0 !important; width: 100% !important; }
+
+.page-root.m .sec-work { height: auto !important; padding: 72px 0 80px; }
+.page-root.m .work-sticky { position: static !important; height: auto !important; overflow: visible !important; }
+.page-root.m .work-head { position: static !important; padding: 0 20px 24px; }
+.page-root.m .work-progress { display: none !important; }
+.page-root.m .work-track {
+  position: static !important; transform: none !important; flex-direction: column !important;
+  gap: 24px !important; padding: 0 20px !important;
+}
+.page-root.m .card { width: 100% !important; height: auto !important; flex-direction: column !important; border-radius: 22px !important; }
+.page-root.m .card > div:first-child { width: 600px !important; height: 600px !important; zoom: calc(var(--cw, 380) / 600); }
+.page-root.m .card > div:nth-child(2) { padding: 28px 24px 26px !important; gap: 0; }
+.page-root.m .card > div:nth-child(2) > a:last-child,
+.page-root.m .card > div:nth-child(2) > div:last-child { margin-top: 26px !important; }
+
+.page-root.m .sec-about { height: auto !important; padding: 88px 20px 80px !important; }
+.page-root.m .about-h2 { font-size: 44px !important; }
+.page-root.m .sec-about > div:nth-of-type(2) { margin-top: 40px !important; }
+.page-root.m .tl-row { flex-direction: column !important; gap: 12px !important; padding: 24px 0 26px !important; }
+.page-root.m .tl-year { width: auto !important; font-size: 64px !important; }
+.page-root.m .tl-title { width: auto !important; }
+
+.page-root.m .sec-contact { height: auto !important; min-height: calc(100svh / var(--z, 1)); padding: 0 20px 32px !important; }
+.page-root.m .sec-contact > div:first-child { padding: 96px 0 56px; }
+.page-root.m .contact-eyebrow { flex-wrap: wrap; gap: 12px !important; }
+.page-root.m .contact-eyebrow > span { height: auto !important; padding: 7px 14px !important; line-height: 1.3; }
+.page-root.m .contact-h2 { font-size: 112px !important; }
+.page-root.m .contact-row { flex-direction: column !important; align-items: flex-start !important; gap: 32px !important; margin-top: 32px !important; }
+.page-root.m .contact-cta { align-items: flex-start !important; }
+.page-root.m .mail-link { font-size: 30px !important; }
+.page-root.m .site-footer { flex-direction: column !important; align-items: flex-start !important; gap: 14px; }
+
+.page-root.m .float-nav { gap: 2px !important; padding: 6px 6px 6px 16px !important; white-space: nowrap; }
+.page-root.m .float-nav > a:first-child { font-size: 22px !important; padding-right: 6px !important; }
+.page-root.m .nav-link { padding: 9px 11px !important; font-size: 15px !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
