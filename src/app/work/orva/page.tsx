@@ -63,7 +63,7 @@ export default function OrvaCaseStudy() {
       <header className={s.top}>
         <a href="/" className={s.brand}>Studio S<span>ü</span></a>
         <nav className={s.topNav}>
-          <a href="/" className={s.back}>← All work</a>
+          <a href="/#work" className={s.back}>← All work</a>
           <a href="mailto:hello@studiosu.dev?subject=About%20Orva" target="_blank" rel="noopener" className={s.hi}>Say hi</a>
         </nav>
       </header>
@@ -238,9 +238,8 @@ export default function OrvaCaseStudy() {
       </main>
 
       <footer className={s.foot}>
-        <p>Want the longer version, or the Figma file walkthrough?</p>
         <a href="mailto:hello@studiosu.dev?subject=About%20Orva" target="_blank" rel="noopener" className={s.cta}>Ask me about Orva →</a>
-        <a href="/" className={s.back}>← Back to all work</a>
+        <a href="/#work" className={s.back}>← Back to all work</a>
       </footer>
     </div>
   );

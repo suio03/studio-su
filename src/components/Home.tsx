@@ -75,6 +75,16 @@ export default class Home extends React.Component<object, State> {
       this._ro = new ResizeObserver(() => this.measureTops());
       this._ro.observe(this._root.current);
     }
+    // Coming back from a case study ("/#work"): land on the Selected work section, not the top.
+    if (window.location.hash === '#work') {
+      history.replaceState(null, '', window.location.pathname);
+      const jump = () => {
+        const el = document.querySelector<HTMLElement>('[data-sec="work"]');
+        if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY, behavior: 'auto' });
+      };
+      requestAnimationFrame(() => requestAnimationFrame(jump));
+      setTimeout(jump, 300);
+    }
     if (!this._rm) {
       this._car = setInterval(() => {
         const k = this.state.tick + 1;
