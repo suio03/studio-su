@@ -21,6 +21,25 @@ function Fig({ src, alt, cap, wide, tone, pending, phone }: { src?: string; alt?
   );
 }
 
+type Shot = { src: string; alt: string; label?: string; tone?: string; phone?: boolean; fill?: boolean };
+
+/* Side-by-side screens in equal-height stages, so a landscape and a portrait image still balance. */
+function Cmp({ items, cap, short }: { items: Shot[]; cap?: string; short?: boolean }) {
+  return (
+    <figure className={s.fig}>
+      <div className={s.cmp} style={{ gridTemplateColumns: `repeat(${items.length}, 1fr)` }}>
+        {items.map((it) => (
+          <div key={it.src} className={`${s.stage} ${short ? s.short : ''} ${it.fill ? s.fill : ''}`} style={it.tone ? { background: it.tone } : undefined}>
+            {it.label && <span className={s.chip}>{it.label}</span>}
+            <img src={IMG + it.src} alt={it.alt} loading="lazy" className={it.phone ? s.phoneImg : undefined} />
+          </div>
+        ))}
+      </div>
+      {cap && <figcaption>{cap}</figcaption>}
+    </figure>
+  );
+}
+
 const SNAPSHOT: [string, string][] = [
   ['Role', 'Sole designer, end to end: brand, mascot, UI, design system, handoff'],
   ['Client', 'Asmovian, a med-tech start-up working with hospital clinicians'],
@@ -89,10 +108,12 @@ export default function OrvaCaseStudy() {
       <main className={s.body}>
         <section className={s.block}>
           <h2><span className={s.num}>01</span>The starting point</h2>
+          <div className={s.split}>
           <div className={s.prose}>
             <p>When I joined, Orva was a generic chatbot running on the hospital tablet: small text, a plain purple bubble for the AI and no brand at all. It worked, but nothing about it said <em>this is safe, and it’s for you</em> to an older patient who had never used a chat app.</p>
           </div>
-          <Fig src="before-chatbot.webp" alt="The original chatbot running on the hospital tablet" cap="Before: the client’s off-the-shelf chatbot on the hospital tablet." wide />
+          <Fig src="before-chatbot.webp" alt="The original chatbot running on the hospital tablet" cap="Before: the client’s off-the-shelf chatbot on the hospital tablet." />
+          </div>
           <h3 className={s.h3}>The constraints shaped every decision</h3>
           <ol className={s.cards}>
             {CONSTRAINTS.map(([t, d]) => (
@@ -132,10 +153,10 @@ export default function OrvaCaseStudy() {
               </div>
               <figcaption>Three directions: credibility, connection, conversation. The clinical lead picked connection.</figcaption>
             </figure>
-            <div className={s.pair}>
-              <Fig src="logo-iteration.webp" alt="Colour iterations of the embrace logo" cap="Iterating on the chosen idea." tone="#FFFFFF" />
-              <Fig src="logo-final.webp" alt="Final Orva logotype" cap="Final logotype: the icon becomes the “O”." tone="#FFFFFF" />
-            </div>
+            <Cmp short cap="Iterating on the chosen idea, then the final logotype: the icon becomes the “O”." items={[
+              { src: 'logo-iteration.webp', alt: 'Colour iterations of the embrace logo', label: 'Iterations', tone: '#FFFFFF' },
+              { src: 'logo-final.webp', alt: 'Final Orva logotype', label: 'Final', tone: '#FFFFFF' },
+            ]} />
           </article>
 
           <article className={s.decision}>
@@ -144,10 +165,10 @@ export default function OrvaCaseStudy() {
               <p>Version one of the welcome page explained Orva in three text cards with Login in the centre. Feedback said it needed to grab attention for people who had never heard of Orva. Before redesigning, I asked one question: hero image or step-by-step tutorial? The answer was a hero, so the page became one illustration of a patient using Orva on a tablet, with Login moved to the corner.</p>
               <p>After the client saw it, the character became younger. People in their late 50s and older still want to feel young.</p>
             </div>
-            <div className={s.pair}>
-              <Fig src="welcome-v1.webp" alt="First welcome page with three text cards and a central Login button" cap="v1: three text cards and a central Login." tone="#FFFFFF" />
-              <Fig src="welcome-final.webp" phone alt="Final Orva welcome screen" cap="Final: one hero illustration, Login in the corner." tone="#EDE6F2" />
-            </div>
+            <Cmp cap="v1 explained Orva in three text cards. The final page shows it: one illustration, Login in the corner." items={[
+              { src: 'welcome-v1.webp', alt: 'First welcome page with three text cards and a central Login button', label: 'Before', tone: '#F4F1F6' },
+              { src: 'welcome-final.webp', alt: 'Final Orva welcome screen', label: 'After', tone: '#EDE6F2', phone: true },
+            ]} />
           </article>
 
           <article className={s.decision}>
@@ -171,16 +192,11 @@ export default function OrvaCaseStudy() {
               <p>My first chat design had a left sidebar with chat history and settings. In a call, the client showed me the real device: an 8.7″ tablet, often held in portrait, where the sidebar took up too much of the screen.</p>
               <p>I moved navigation into a top bar with a small menu, kept one continuous conversation instead of separate chat sessions, and designed both orientations at 1340 × 800. I also cut references and voice playback from v1 so the first release stayed simple, and added a “Welcome back” screen and an emergency “Call 000” option.</p>
             </div>
-            <div className={s.pair}>
-              <Fig src="chat-sidebar.webp" alt="First chat design with a left sidebar" cap="Before: a sidebar that ate a portrait screen." />
-              <Fig src="chat-final.webp" phone alt="Final Orva chat screen in portrait" cap="After: top bar, one conversation, A−/A+ text size." tone="#EDE6F2" />
-            </div>
-            <div className={s.pair}>
-              <div className={s.prose + ' ' + s.aside}>
-                <p>Later rounds added a dark mode, adjustable text size (A−/A+) in the top bar, and clear feedback states on every reply.</p>
-              </div>
-              <Fig src="dark-chat.webp" phone alt="Orva chat in dark mode" cap="Dark mode." tone="#2A2730" />
-            </div>
+            <Cmp cap="The sidebar version took up too much of a portrait screen. The final chat uses a top bar, one conversation and A−/A+ text size, with a dark mode added later." items={[
+              { src: 'chat-sidebar.webp', alt: 'First chat design with a left sidebar, shown on a tablet', label: 'Before', tone: '#E9E4EC', fill: true },
+              { src: 'chat-final.webp', alt: 'Final Orva chat screen in portrait', label: 'After', tone: '#EDE6F2', phone: true },
+              { src: 'dark-chat.webp', alt: 'Orva chat in dark mode', label: 'Dark mode', tone: '#2A2730', phone: true },
+            ]} />
           </article>
 
           <article className={s.decision}>
@@ -192,19 +208,14 @@ export default function OrvaCaseStudy() {
                 <li><strong>No extra volume control.</strong> Tablets already have volume buttons. Another slider is one more thing for an older user to get wrong, so I removed it and pointed to the device volume.</li>
               </ul>
             </div>
-            <div className={s.pair}>
-              <div className={s.stack}>
-                <Fig src="tts-before-player.webp" alt="First build: one global audio player with a volume slider" cap="First build: one global player with its own volume." tone="#FFFFFF" />
-                <Fig src="tts-before-settings.webp" alt="First build: text-to-speech settings dialog with a volume slider" cap="…and a second volume slider in settings." tone="#FFFFFF" />
-              </div>
-              <Fig src="tts-after-playing.webp" phone alt="Redesign: a speaker button and a small player on the message being read" cap="After: the speaker sits on the message being read." tone="#EDE6F2" />
-            </div>
-            <div className={s.pair}>
-              <Fig src="tts-after-settings.webp" phone alt="Redesigned text-to-speech settings pointing to the device volume" cap="Settings without a volume slider: a note points to the tablet’s own buttons." tone="#EDE6F2" />
-              <div className={s.prose + ' ' + s.aside}>
-                <p>The redesign keeps every control next to the thing it controls. The player only appears on the message being read, with pause and stop, and says “Orva is speaking…” so it’s obvious what’s happening.</p>
-              </div>
-            </div>
+            <Cmp cap="The player: one global bar with its own volume, replaced by a speaker on the message being read, with pause, stop and “Orva is speaking…”." items={[
+              { src: 'tts-before-player.webp', alt: 'First build: one global audio player with a volume slider', label: 'Before', tone: '#F4F1F6' },
+              { src: 'tts-after-playing.webp', alt: 'Redesign: a speaker button and a small player on the message being read', label: 'After', tone: '#EDE6F2', phone: true },
+            ]} />
+            <Cmp cap="Settings: the second volume slider is gone. A note points to the tablet’s own volume buttons." items={[
+              { src: 'tts-before-settings.webp', alt: 'First build: text-to-speech settings dialog with a volume slider', label: 'Before', tone: '#F4F1F6' },
+              { src: 'tts-after-settings.webp', alt: 'Redesigned text-to-speech settings pointing to the device volume', label: 'After', tone: '#EDE6F2', phone: true },
+            ]} />
           </article>
         </section>
 
@@ -225,10 +236,12 @@ export default function OrvaCaseStudy() {
 
         <section className={s.block}>
           <h2><span className={s.num}>05</span>Outcome</h2>
+          <div className={s.split}>
           <div className={s.prose}>
             <p className={s.big}>The designs went straight into production. Seven weeks after the first round, the client’s developer had built the welcome page and chat from my files and demoed them live to hospital staff. Every round after that was coded from the Figma handoff and design system.</p>
           </div>
-          <div className={s.dsWrap}><Fig src="design-system.webp" alt="Orva design system: colour and typography" cap="Part of the design system the developer built from: colour roles and type styles." tone="#FFFFFF" /></div>
+          <Fig src="design-system.webp" alt="Orva design system: colour and typography" cap="Part of the design system the developer built from." tone="#FFFFFF" />
+          </div>
           <div className={s.outcome}>
             <div><div className={s.label}>Delivered</div><p>Logo and logotype, mascot, welcome / login / Notify Me flows, patient chat in portrait and landscape, dark mode, text-to-speech controls, and a design system with feedback states.</p></div>
             <div><div className={s.label}>Trust earned</div><p>The client came back for each new feature, then asked me to design the clinician portal. A year after the first round, the founder got in touch again: Orva is “progressing well” and heading into a clinical trial, and he brought me a new project.</p></div>
