@@ -212,7 +212,7 @@ export function Sections({ v }) {
 <div style={{ position: 'absolute', left: '24px', top: '22px', padding: '6px 12px', borderRadius: '999px', background: 'rgba(43,24,64,0.55)', fontFamily: '\'DM Mono\', monospace', fontSize: '12px', letterSpacing: '0.1em', color: '#FFFFFF', zIndex: '5' }}>06 / 06</div>
 </div>
 <div style={{ flexGrow: '1', padding: '44px 44px 36px', display: 'flex', flexDirection: 'column', fontFamily: '\'Figtree\', sans-serif' }}>
-<div style={{ fontSize: '13px', fontWeight: '600', letterSpacing: '0.14em', opacity: '0.55', whiteSpace: 'nowrap', textAlign: 'right' }}>PERSONAL PROJECT · 2025</div>
+<div style={{ fontSize: '13px', fontWeight: '600', letterSpacing: '0.14em', opacity: '0.55', whiteSpace: 'nowrap', textAlign: 'right' }}>UNI PROJECT · 2025</div>
 <h3 style={{ margin: '18px 0 0', fontFamily: '\'Figtree\', sans-serif', fontSize: '48px', lineHeight: '1', fontWeight: '800', letterSpacing: '-0.03em', color: '#5E97A8', display: 'flex', alignItems: 'flex-end', gap: '2px' }}>Voca<img src="work/7072f1c68ccb6247dbb8f080d4ad279f.webp" alt="" aria-hidden="true" style={{ height: '50px', width: 'auto', margin: '0 1px -2px' }} />bin<span style={{ position: 'absolute', width: '1px', height: '1px', overflow: 'hidden', clip: 'rect(0 0 0 0)' }}>Vocabin</span></h3>
 <p style={{ margin: '20px 0 0', fontSize: '22px', lineHeight: '1.35', fontWeight: '500', letterSpacing: '-0.01em' }}>A personal English-learning tool for collecting words and practising vocabulary, listening and reading.</p>
 <p style={{ margin: '8px 0 0', fontSize: '16px', lineHeight: '1.45', opacity: '0.65' }}>Designed and built solo, from mascot to database.</p>
