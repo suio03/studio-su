@@ -8,8 +8,8 @@ import { Arrow } from './Arrow';
 export function Sections({ v }) {
   return (
     <>
-<section data-sec="hero" className="sec-hero" onMouseMove={v.nudgeHello} onMouseLeave={v.stopHello} style={{ height: `${v.heroH}px`, position: 'relative' }}>
-<div className="hero-wrap" style={{ position: 'absolute', left: '80px', right: '70px', top: '130px', display: 'flex', alignItems: 'last baseline', gap: '40px' }}>
+<section data-sec="hero" className="sec-hero" style={{ height: `${v.heroH}px`, position: 'relative' }}>
+<div className="hero-wrap" onMouseMove={v.nudgeHello} onMouseLeave={v.stopHello} style={{ position: 'absolute', left: '80px', right: '70px', top: '130px', display: 'flex', alignItems: 'last baseline', gap: '40px' }}>
 <h1 style={{ flexShrink: '0', margin: '0', fontFamily: v.fDisplay, fontSize: `${v.hSize}px`, lineHeight: '1', fontWeight: v.fWeight, letterSpacing: v.fLs, cursor: 'default' }}>
 <div style={{ display: 'flex', alignItems: 'baseline', gap: '28px', width: '0', whiteSpace: 'nowrap' }}><span>{v.hello}</span></div>
 <div style={{ display: 'flex', alignItems: 'baseline', marginTop: '20px' }}>

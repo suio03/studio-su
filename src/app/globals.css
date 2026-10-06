@@ -12,6 +12,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 /* The page is drawn on a 1440px canvas and scaled to the window width. */
+/* Hover area for the hello greeting: the heading and intro plus a margin around them. */
+.hero-wrap { z-index: 0; }
+.hero-wrap::before { content: ''; position: absolute; inset: -90px -50px -120px; z-index: -1; }
 .page-root:not(.m) .work-track > .card {
   zoom: var(--cs, 0.85);
 }
