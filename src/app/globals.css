@@ -71,11 +71,11 @@ a{color:inherit}
  * canvas (scaled to the window by --z) and stacks every section.      *
  * Inline design styles are overridden here, hence the !important.     *
  * ------------------------------------------------------------------ */
-.page-root.m .sec-hero { height: auto !important; min-height: calc(100svh / var(--z, 1)); }
+.page-root.m .sec-hero { height: auto !important; min-height: calc(100svh / var(--z, 1)); display: flex; flex-direction: column; justify-content: center; }
 .page-root.m .hero-wrap {
   position: relative !important; left: auto !important; right: auto !important; top: auto !important;
   flex-direction: column !important; align-items: flex-start !important; gap: 40px !important;
-  padding: 150px 20px 150px;
+  padding: 84px 20px 132px;
 }
 .page-root.m .hero-intro { margin-left: 0 !important; width: 100% !important; }
 
