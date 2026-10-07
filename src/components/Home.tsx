@@ -52,10 +52,11 @@ type State = {
   canvas: number; // design canvas width in use
   tops: Record<string, number>; // section tops in design px
   menu: boolean; // mobile menu open
+  mIdx: number; // mobile: card in view
 };
 
 export default class Home extends React.Component<object, State> {
-  state: State = { mounted: false, st: 0, zoom: 1, vh: 900, px: 0, py: 0, hi: 0, t: 0, hovering: false, tick: 0, slide: 0, mobile: false, canvas: 1440, tops: {}, menu: false };
+  state: State = { mounted: false, st: 0, zoom: 1, vh: 900, px: 0, py: 0, hi: 0, t: 0, hovering: false, tick: 0, slide: 0, mobile: false, canvas: 1440, tops: {}, menu: false, mIdx: 0 };
 
   private _ro: ResizeObserver | null = null;
   private _root = React.createRef<HTMLDivElement>();
@@ -109,7 +110,7 @@ export default class Home extends React.Component<object, State> {
     const canvas = canvasFor(w);
     const zoom = w / canvas;
     document.documentElement.style.setProperty('--z', String(zoom));
-    document.documentElement.style.setProperty('--cw', String(canvas - 40));
+    document.documentElement.style.setProperty('--cw', String(canvas - 76));
     this.setState({ mounted: true, mobile, canvas, zoom, vh: window.innerHeight / zoom, st: window.scrollY / zoom }, this.measureTops);
   };
 
@@ -261,6 +262,21 @@ export default class Home extends React.Component<object, State> {
       counter: '0' + Math.min(6, Math.floor(p * 6) + 1),
       px: Math.max(-Math.floor(((eyeW - pupil) / 2) * 0.8), Math.min(Math.floor(((eyeW - pupil) / 2) * 0.8), this.state.px)),
       py: Math.max(-Math.floor(((eyeH - pupil) / 2) * 0.75), Math.min(Math.floor(((eyeH - pupil) / 2) * 0.75), this.state.py)),
+      mobile,
+      mIdx: this.state.mIdx,
+      onTrackScroll: (e: React.UIEvent<HTMLDivElement>) => {
+        const el = e.currentTarget;
+        const card = el.firstElementChild as HTMLElement | null;
+        if (!card) return;
+        const step = card.getBoundingClientRect().width + 12 * this.state.zoom;
+        const i = Math.max(0, Math.min(5, Math.round(el.scrollLeft / step)));
+        if (i !== this.state.mIdx) this.setState({ mIdx: i });
+      },
+      goCard: (i: number) => {
+        const el = document.querySelector<HTMLElement>('.work-track');
+        const card = el?.children[i] as HTMLElement | undefined;
+        if (el && card) el.scrollTo({ left: card.offsetLeft - (el.firstElementChild as HTMLElement).offsetLeft, behavior: this._rm ? 'auto' : 'smooth' });
+      },
       goTop: this.go(null),
       goWork: this.go('work'),
       goAbout: this.go('about'),
