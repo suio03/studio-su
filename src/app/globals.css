@@ -75,7 +75,7 @@ a{color:inherit}
 .page-root.m .hero-wrap {
   position: relative !important; left: auto !important; right: auto !important; top: auto !important;
   flex-direction: column !important; align-items: flex-start !important; gap: 40px !important;
-  padding: 96px 20px 150px;
+  padding: 150px 20px 150px;
 }
 .page-root.m .hero-intro { margin-left: 0 !important; width: 100% !important; }
 
@@ -132,7 +132,7 @@ a{color:inherit}
 .m-menu a.on { color: #64A7B4; }
 .m-menu a.m-cv { justify-content: center; gap: 10px; margin-top: 20px; padding: 0; height: 52px; border: 0; border-radius: 999px; background: #2B1840; color: #FFFFFF;
   font-family: 'Figtree', sans-serif; font-weight: 600; font-size: 17px; letter-spacing: 0; }
-.page-root.m .avail-pill { height: auto !important; padding: 8px 16px !important; line-height: 1.35; text-wrap: balance; max-width: 300px; }
+.page-root.m .avail-pill { height: 34px !important; padding: 0 14px !important; font-size: 13px !important; gap: 8px !important; white-space: nowrap; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
