@@ -192,3 +192,20 @@
   .logRow { grid-template-columns: 1fr; }
   .logWhat, .logWhy { grid-column: auto; }
 }
+.stage.tall { height: clamp(360px, 42vw, 600px); }
+
+/* Denlo additions */
+.steps3 { grid-template-columns: repeat(3, 1fr); }
+.cards2 { grid-template-columns: repeat(2, 1fr); }
+.log3 { grid-template-columns: 90px 1.2fr 1fr; }
+.swatches { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 24px; }
+.swatches > div { display: flex; flex-direction: column; gap: 6px; padding: 12px; border-radius: 18px; border: 1px solid var(--line); background: #fff; font-size: 14px; line-height: 1.4; color: var(--muted); }
+.swatches strong { color: var(--ink); font-size: 15px; }
+.swatch { display: block; height: 72px; border-radius: 12px; margin-bottom: 6px; }
+.swatchOn { border: 2px solid var(--ink) !important; }
+@media (max-width: 900px) {
+  .steps3, .cards2 { grid-template-columns: 1fr; }
+  .swatches { grid-template-columns: repeat(2, 1fr); }
+  .log3 { grid-template-columns: 70px 1fr; }
+  .log3 .logWhy { grid-column: 2; }
+}

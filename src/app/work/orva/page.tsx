@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import s from './case.module.css';
+import s from '../case.module.css';
+import { Fig as SharedFig, Cmp as SharedCmp, type Shot } from '../parts';
 
 export const metadata: Metadata = {
   title: 'Orva case study — Suyun Chen · Studio Sü',
@@ -9,35 +10,11 @@ export const metadata: Metadata = {
 
 const IMG = '/work/orva-cs/';
 
-/* Images still to come from the Figma file. Rendered as a labelled placeholder until the file exists. */
-function Fig({ src, alt, cap, wide, tone, pending, phone }: { src?: string; alt?: string; cap?: string; wide?: boolean; tone?: string; pending?: string; phone?: boolean }) {
-  return (
-    <figure className={`${s.fig} ${wide ? s.wide : ''}`}>
-      <div className={`${s.frame} ${phone ? s.phone : ''}`} style={tone ? { background: tone } : undefined}>
-        {pending ? <div className={s.pending}>{pending}</div> : <img src={IMG + src} alt={alt} loading="lazy" />}
-      </div>
-      {cap && <figcaption>{cap}</figcaption>}
-    </figure>
-  );
+function Fig(p: { src: string; alt: string; cap?: string; tone?: string; phone?: boolean }) {
+  return <SharedFig base={IMG} {...p} />;
 }
-
-type Shot = { src: string; alt: string; label?: string; tone?: string; phone?: boolean; fill?: boolean };
-
-/* Side-by-side screens in equal-height stages, so a landscape and a portrait image still balance. */
-function Cmp({ items, cap, short }: { items: Shot[]; cap?: string; short?: boolean }) {
-  return (
-    <figure className={s.fig}>
-      <div className={s.cmp} style={{ gridTemplateColumns: `repeat(${items.length}, 1fr)` }}>
-        {items.map((it) => (
-          <div key={it.src} className={`${s.stage} ${short ? s.short : ''} ${it.fill ? s.fill : ''}`} style={it.tone ? { background: it.tone } : undefined}>
-            {it.label && <span className={s.chip}>{it.label}</span>}
-            <img src={IMG + it.src} alt={it.alt} loading="lazy" className={it.phone ? s.phoneImg : undefined} />
-          </div>
-        ))}
-      </div>
-      {cap && <figcaption>{cap}</figcaption>}
-    </figure>
-  );
+function Cmp(p: { items: Shot[]; cap?: string; short?: boolean }) {
+  return <SharedCmp base={IMG} {...p} />;
 }
 
 const SNAPSHOT: [string, string][] = [
