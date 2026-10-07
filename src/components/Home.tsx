@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Nav, Sections } from './Markup';
+import { Nav, MobileNav, Sections } from './Markup';
 
 /* ------------------------------------------------------------------ *
  * Design constants (all in "design px" — the page is drawn on a      *
@@ -51,10 +51,11 @@ type State = {
   mobile: boolean;
   canvas: number; // design canvas width in use
   tops: Record<string, number>; // section tops in design px
+  menu: boolean; // mobile menu open
 };
 
 export default class Home extends React.Component<object, State> {
-  state: State = { mounted: false, st: 0, zoom: 1, vh: 900, px: 12, py: 10, hi: 0, t: 0, hovering: false, tick: 0, slide: 0, mobile: false, canvas: 1440, tops: {} };
+  state: State = { mounted: false, st: 0, zoom: 1, vh: 900, px: 12, py: 10, hi: 0, t: 0, hovering: false, tick: 0, slide: 0, mobile: false, canvas: 1440, tops: {}, menu: false };
 
   private _ro: ResizeObserver | null = null;
   private _root = React.createRef<HTMLDivElement>();
@@ -147,6 +148,7 @@ export default class Home extends React.Component<object, State> {
   go(name: string | null) {
     return (e: React.MouseEvent) => {
       e.preventDefault();
+      if (this.state.menu) this.setState({ menu: false });
       const el = name ? document.querySelector<HTMLElement>(`[data-sec="${name}"]`) : null;
       let top = el ? el.getBoundingClientRect().top + window.scrollY : 0;
       if (el && name === 'about') {
@@ -310,7 +312,11 @@ export default class Home extends React.Component<object, State> {
         style={{ background: v.bg, color: v.ink, fontFamily: v.fBody, ['--cs' as string]: v.cs }}
       >
         <Sections v={v} />
-        <Nav v={v} />
+        {this.state.mobile ? (
+          <MobileNav v={v} open={this.state.menu} toggle={() => this.setState((s) => ({ menu: !s.menu }))} />
+        ) : (
+          <Nav v={v} />
+        )}
       </div>
     );
   }
