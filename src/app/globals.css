@@ -127,8 +127,8 @@ a{color:inherit}
 .m-bar.open .m-burger span:last-child { top: 21px; transform: rotate(-45deg); }
 .m-menu { display: flex; flex-direction: column; overflow: hidden; visibility: hidden; padding: 0 20px; max-height: 0; transition: max-height .35s ease, padding .35s ease, visibility .35s; }
 .m-bar.open .m-menu { visibility: visible; max-height: 420px; padding: 8px 20px 24px; }
-.m-menu a { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid rgba(43,24,64,0.1);
-  text-decoration: none; font-family: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.035em; }
+.m-menu a { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(43,24,64,0.1);
+  text-decoration: none; font-family: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.02em; }
 .m-menu a.on { color: #64A7B4; }
 .m-menu a.m-cv { justify-content: center; gap: 10px; margin-top: 20px; padding: 0; height: 52px; border: 0; border-radius: 999px; background: #2B1840; color: #FFFFFF;
   font-family: 'Figtree', sans-serif; font-weight: 600; font-size: 17px; letter-spacing: 0; }
