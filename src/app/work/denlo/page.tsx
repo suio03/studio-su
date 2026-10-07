@@ -20,6 +20,20 @@ const PLUM = '#4A1F5C';
 const LILAC = '#EFE8F2';
 const PROTO = '#EEECEA'; // background baked into the prototype mockups
 
+const NEED: [string, string][] = [
+  ['What people ask for', '“Write a post about my product.”'],
+  ['What they really need', 'To say what they already think, in their own voice, in a way that makes people curious, on every platform, without spending hours on it.'],
+  ['Who it is for', 'First, indie developers who build well but hate marketing. Then anyone who has a point to make but struggles to put it into words.'],
+];
+
+const NEED_MAP: [string, string][] = [
+  ['Less effort', 'Voice first. Talking is easier than writing, so you just say your idea out loud.'],
+  ['Their own voice', 'Onboarding asks your role, and Denlo learns only from posts you mark as posted. It never adds “As a founder, I…” unless you said it.'],
+  ['Make people curious', 'Denlo finds the key sentence in what you said and builds the post around it. Images are built around a question, a number or a contrast from your words.'],
+  ['Every platform', 'One idea becomes posts for X, LinkedIn, Threads, Instagram and TikTok, each in the right format.'],
+  ['Trust', 'Denlo never shows a number you didn’t say, so posts and images can’t make up facts.'],
+];
+
 const SNAPSHOT: [string, string][] = [
   ['Role', 'Product designer. I led the redesign: visual style, flows, motion and the App Store page'],
   ['Company', 'Cendro Labs, a small product studio'],
@@ -115,7 +129,29 @@ export default function DenloCaseStudy() {
 
       <main className={s.body}>
         <section className={s.block}>
-          <h2><span className={s.num}>01</span>Where it started</h2>
+          <h2><span className={s.num}>01</span>The real problem</h2>
+          <p className={s.question}>Finishing a product is only half the work. The other half is getting people to care about it.</p>
+          <div className={s.prose}>
+            <p>Denlo started with my own problem. I do the marketing for Cendro Labs’ indie products. When a new product was ready and I had to promote it on social media, the hard part was not the idea. It was saying it in a way that makes people curious and want to join in, like a good speaker who opens with a question. Then doing it again for every platform.</p>
+          </div>
+          <ol className={s.cards}>
+            {NEED.map(([t, d]) => (
+              <li key={t}><strong>{t}</strong><span>{d}</span></li>
+            ))}
+          </ol>
+          <h3 className={s.h3}>How the real need shaped the design</h3>
+          <div className={s.log}>
+            {NEED_MAP.map(([n, d], i) => (
+              <div key={i} className={`${s.logRow} ${s.need2}`}>
+                <div className={s.logArea}>{n}</div>
+                <div className={s.logWhat}>{d}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className={s.block}>
+          <h2><span className={s.num}>02</span>Where it started</h2>
           <div className={s.prose}>
             <p>Version one had every feature: recording, transcription, a post for each platform, image templates and subscriptions. The Cendro Labs engineer built it under the working name Riff. But it didn’t give people a reason to trust it, or a reason to pay.</p>
             <ul>
@@ -133,7 +169,7 @@ export default function DenloCaseStudy() {
         </section>
 
         <section className={s.block}>
-          <h2><span className={s.num}>02</span>The biggest decision</h2>
+          <h2><span className={s.num}>03</span>The biggest decision</h2>
           <div className={s.stopBand}>
             <span className={s.tag}>28 – 29 September</span>
             <h3>I stopped the launch.</h3>
@@ -157,7 +193,7 @@ export default function DenloCaseStudy() {
         </section>
 
         <section className={s.block}>
-          <h2><span className={s.num}>03</span>Key decisions</h2>
+          <h2><span className={s.num}>04</span>Key decisions</h2>
 
           <article className={s.decision}>
             <h3>1. A coloured stage instead of a form</h3>
@@ -241,7 +277,7 @@ export default function DenloCaseStudy() {
         </section>
 
         <section className={s.block}>
-          <h2><span className={s.num}>04</span>Four turning points</h2>
+          <h2><span className={s.num}>05</span>Four turning points</h2>
           <ol className={s.turns}>
             {TURNS.map(([t, ft, d], i) => (
               <li key={t}><span className={s.stepN}>0{i + 1}</span><strong>{t}</strong><span className={s.fromTo}>{ft}</span><span>{d}</span></li>
@@ -262,7 +298,7 @@ export default function DenloCaseStudy() {
         </section>
 
         <section className={s.block}>
-          <h2><span className={s.num}>05</span>Outcome</h2>
+          <h2><span className={s.num}>06</span>Outcome</h2>
           <div className={s.stats}>
             <div><strong>7 days</strong>From the first design direction to launch on the App Store.</div>
             <div><strong>1 withdrawal</strong>My choice, so real users would see a finished app.</div>
