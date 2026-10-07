@@ -280,6 +280,8 @@ export function MobileNav({ v, open, toggle }) {
   const links = [['Work', '#work', v.goWork, v.navWorkBg !== 'transparent'], ['About', '#about', v.goAbout, v.navAboutBg !== 'transparent'], ['Contact', '#contact', v.goContact, v.navContactBg !== 'transparent']];
   const dark = v.navText === '#FFFFFF';
   return (
+<>
+<div className={'m-scrim' + (open ? ' on' : '')} onClick={open ? toggle : undefined} aria-hidden="true"></div>
 <header className={'m-bar' + (open ? ' open' : '') + (dark ? ' dark' : '')}>
 <div className="m-bar-row">
 <a href="#" onClick={v.goTop} className="m-brand">Studio S<span className="su-rest">ü</span></a>
@@ -292,5 +294,6 @@ export function MobileNav({ v, open, toggle }) {
 <a href="Suyun-Chen.pdf" download="Suyun-Chen.pdf" tabIndex={open ? 0 : -1} className="m-cv">Download CV <Arrow dir="down" /></a>
 </nav>
 </header>
+</>
   );
 }
