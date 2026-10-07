@@ -218,3 +218,6 @@
 .heroPhones { display: flex; align-items: center; justify-content: center; }
 .heroPhones img { width: 100%; max-width: 560px; height: auto; filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.35)); }
 .heroBand + .snapshot { padding-top: 40px; }
+.fixCards { margin-top: 28px; }
+.ba { display: block; }
+.ba em { display: block; font-style: normal; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 10px 0 2px; }

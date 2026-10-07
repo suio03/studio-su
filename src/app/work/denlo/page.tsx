@@ -43,6 +43,12 @@ const MOMENTS: [string, string][] = [
   ['Result', 'The post rises, paragraphs appear in order, and Copy turns into a tick.'],
 ];
 
+const FIXES: [string, string, string][] = [
+  ['Sign in later', 'Sign in with Apple was the first screen, before people saw any value.', 'Welcome → role → audience → Create. Sign-in appears only at the first “Write My Post”, and shows the thought you just recorded as “Saved”.'],
+  ['Price in sight', 'Pricing lived only in Settings, and needed an account to view.', 'A badge on Create shows “2 free left”, or “Get Pro” when you run out, and opens the paywall without signing in.'],
+  ['Sell Pro, not the free tier', 'The paywall spent its space on a Free vs Pro table.', 'One headline, “200 ideas a month, each one ready for every platform”, a strip showing one idea becoming five platforms, and one line about your own free ideas.'],
+];
+
 const HONEST: [string, string][] = [
   ['Paused, not Processing', 'A half-finished draft said “Processing” although nothing was running. It now says “Paused” with a Continue button.'],
   ['Delete account in a sheet', 'It used to open a new page full of repeated warnings. Now it is one short confirmation sheet.'],
@@ -171,12 +177,16 @@ export default function DenloCaseStudy() {
             <h3>3. Pull the review, fix the first impression</h3>
             <div className={s.prose}>
               <p>I submitted 1.0 for review on 28 September, then withdrew it the next morning. The App Store listing hadn’t been researched, and the flows were built on our own assumptions rather than standards. With no users yet, fixing it then cost a day; fixing it after launch would cost far more.</p>
-              <ul>
-                <li><strong>Sign in later.</strong> New users no longer hit Sign in with Apple first. They go Welcome → role → audience → Create, and sign in only when they tap “Write My Post”. The sign-in sheet shows the thought they just recorded, marked “Saved”.</li>
-                <li><strong>Price in sight.</strong> A small badge on Create shows “2 free left”, or “Get Pro” when they run out, and opens the paywall. Seeing prices no longer needs an account.</li>
-                <li><strong>Sell Pro, not the free tier.</strong> I replaced the Free vs Pro table with one headline, “200 ideas a month, each one ready for every platform”, and a strip showing one idea becoming five platforms plus an image card. The free tier became one line about your own status.</li>
-              </ul>
             </div>
+            <ol className={`${s.cards} ${s.fixCards}`}>
+              {FIXES.map(([title, before, after]) => (
+                <li key={title}>
+                  <strong>{title}</strong>
+                  <span className={s.ba}><em>Before</em>{before}</span>
+                  <span className={s.ba}><em>After</em>{after}</span>
+                </li>
+              ))}
+            </ol>
           </article>
 
           <article className={s.decision}>
