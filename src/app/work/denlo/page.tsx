@@ -132,7 +132,7 @@ export default function DenloCaseStudy() {
           <h2><span className={s.num}>01</span>The real problem</h2>
           <p className={s.question}>Finishing a product is only half the work. The other half is getting people to care about it.</p>
           <div className={s.prose}>
-            <p>Denlo started with my own problem. I do the marketing for Cendro Labs’ indie products. When a new product was ready and I had to promote it on social media, the hard part was not the idea. It was saying it in a way that makes people curious and want to join in, like a good speaker who opens with a question. Then doing it again for every platform.</p>
+            <p>Denlo started with a problem most indie developers know. The Cendro Labs engineer had just finished a new product and needed to promote it on social media. The hard part was not the idea. It was saying it in a way that makes people curious and want to join in, like a good speaker who opens with a question. Then doing it again for every platform.</p>
           </div>
           <ol className={s.cards}>
             {NEED.map(([t, d]) => (

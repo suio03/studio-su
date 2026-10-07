@@ -135,7 +135,7 @@ export default class Home extends React.Component<object, State> {
     const cs = Math.max(0.6, Math.min(CARD_SCALE, (vh - 250) / CARD_H));
     const cardStep = CARD_W * cs + CARD_GAP;
     // Distance the track travels so the last card ends 80px from the right edge.
-    const overflow = Math.max(0, 80 + 5 * cardStep + CARD_W * cs + 80 - 1440);
+    const overflow = Math.max(0, 80 + 4 * cardStep + CARD_W * cs + 80 - 1440);
     const workH = vh + LEAD + overflow + TAIL;
     const contactH = Math.max(760, vh);
     const T = this.state.tops;
@@ -259,7 +259,7 @@ export default class Home extends React.Component<object, State> {
       navShadow: up ? '0 10px 30px rgba(0,0,0,0.18)' : '0 4px 14px rgba(0,0,0,0.12)',
       tx: Math.round(tx),
       pct: Math.round(p * 100),
-      counter: '0' + Math.min(6, Math.floor(p * 6) + 1),
+      counter: '0' + Math.min(5, Math.floor(p * 5) + 1),
       px: Math.max(-Math.floor(((eyeW - pupil) / 2) * 0.8), Math.min(Math.floor(((eyeW - pupil) / 2) * 0.8), this.state.px)),
       py: Math.max(-Math.floor(((eyeH - pupil) / 2) * 0.75), Math.min(Math.floor(((eyeH - pupil) / 2) * 0.75), this.state.py)),
       mobile,
@@ -269,7 +269,7 @@ export default class Home extends React.Component<object, State> {
         const card = el.firstElementChild as HTMLElement | null;
         if (!card) return;
         const step = card.getBoundingClientRect().width + 12 * this.state.zoom;
-        const i = Math.max(0, Math.min(5, Math.round(el.scrollLeft / step)));
+        const i = Math.max(0, Math.min(4, Math.round(el.scrollLeft / step)));
         if (i !== this.state.mIdx) this.setState({ mIdx: i });
       },
       goCard: (i: number) => {

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://studiosu.dev'),
   openGraph: {
     title: 'Suyun Chen — Product Designer · Studio Sü',
-    description: 'UI/UX and product designer in Melbourne. Selected work: Orva, Denlo, Scribix, Pixfy, FablePilot, Vocabin.',
+    description: 'UI/UX and product designer in Melbourne. Selected work: Orva, Denlo, Scribix, Pixfy, FablePilot.',
     url: 'https://studiosu.dev',
     siteName: 'Studio Sü',
     type: 'website',
