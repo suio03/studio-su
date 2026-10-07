@@ -43,10 +43,10 @@ const MOMENTS: [string, string][] = [
   ['Result', 'The post rises, the paragraphs appear one by one, and the Copy button turns into a tick.'],
 ];
 
-const FIXES: [string, string, string][] = [
-  ['Sign in later', 'The first screen was Sign in with Apple, before people saw what the app could do.', 'Welcome → role → audience → Create. Sign-in only appears when you first tap “Write My Post”, and the thought you just recorded shows as “Saved”.'],
-  ['Show the price', 'The price was only in Settings, and you needed an account to see it.', 'A badge on Create shows “2 free left”, or “Get Pro” when you run out. It opens the paywall without signing in.'],
-  ['Sell Pro, not Free', 'Most of the paywall was a Free vs Pro table.', 'One headline, “200 ideas a month, each one ready for every platform”, an image of one idea becoming posts for five platforms, and one line about your free ideas.'],
+const FIXES: [string, string, string, string][] = [
+  ['Sign in later', 'The first screen was Sign in with Apple, before people saw what the app could do.', 'Welcome → role → audience → Create. Sign-in only appears when you first tap “Write My Post”, and the thought you just recorded shows as “Saved”.', 'Show the value before asking for an account.'],
+  ['Show the price', 'The price was only in Settings, and you needed an account to see it.', 'A badge on Create shows “2 free left”, or “Get Pro” when you run out. It opens the paywall without signing in.', 'Never surprise people with the price.'],
+  ['Sell Pro, not Free', 'Most of the paywall was a Free vs Pro table.', 'One headline, “200 ideas a month, each one ready for every platform”, an image of one idea becoming posts for five platforms, and one line about your free ideas.', 'Use the space to sell what people pay for.'],
 ];
 
 const HONEST: [string, string][] = [
@@ -54,6 +54,13 @@ const HONEST: [string, string][] = [
   ['Delete account in a sheet', 'It used to open a new page with many warnings. Now it is one short confirmation sheet.'],
   ['No sparkles', 'Lots of AI apps use the ✨ icon. I removed it everywhere and used Denlo’s own sound-wave logo instead.'],
   ['Your Voice', 'Denlo only learns from posts you mark as posted. It shows what it has learned in simple words, and one switch turns learning off.'],
+];
+
+const TURNS: [string, string, string][] = [
+  ['A new visual direction', 'blue form → plum stage', 'Version one worked, but it looked unfinished.'],
+  ['I stopped the launch', 'in review → withdrawn', 'The first impression wasn’t ready for real users.'],
+  ['Value before sign-in', 'sign in first → record first', 'Sign-in moved to the first “Write My Post”.'],
+  ['Launch', 'in review → on the App Store', 'Denlo 1.0 went live on 2 October.'],
 ];
 
 const LOG: [string, string, string][] = [
@@ -89,9 +96,9 @@ export default function DenloCaseStudy() {
         <section className={s.hero}>
           <div className={s.heroText}>
             <div className={s.eyebrow}>Case study · iOS app · 2026</div>
-            <h1>Making Denlo feel finished before launch</h1>
+            <h1>From a working app to the App Store in&nbsp;7&nbsp;days</h1>
             <p className={s.lead}>
-              Denlo turns a voice note into posts for X, LinkedIn, Threads, Instagram and TikTok, with images and carousels. Version one worked, but it didn’t feel finished. I redesigned the whole app, withdrew the first App Store submission to fix the first impression, and launched on 2 October.
+              Denlo turns a voice note into posts for X, LinkedIn, Threads, Instagram and TikTok. Version one worked, but it didn’t feel finished. Before launch, I redesigned the product experience, onboarding, pricing, visual style, motion and App Store page.
             </p>
           </div>
           <div className={s.heroPhones}>
@@ -126,10 +133,35 @@ export default function DenloCaseStudy() {
         </section>
 
         <section className={s.block}>
-          <h2><span className={s.num}>02</span>Key decisions</h2>
+          <h2><span className={s.num}>02</span>The biggest decision</h2>
+          <div className={s.stopBand}>
+            <span className={s.tag}>28 – 29 September</span>
+            <h3>I stopped the launch.</h3>
+            <p className={s.big}>Version one worked. I didn’t think it was ready for users. I submitted 1.0 for review on 28 September, and withdrew it the next morning.</p>
+          </div>
+          <article className={s.decision}>
+            <div className={s.prose}>
+              <p>I hadn’t researched the App Store page, and the flows were based on guesses, not on common standards. There were no users yet, so fixing it then only took a day. Fixing it after launch would take much longer. These were the three biggest fixes:</p>
+            </div>
+            <ol className={`${s.cards} ${s.fixCards}`}>
+              {FIXES.map(([title, before, after, rule]) => (
+                <li key={title}>
+                  <strong>{title}</strong>
+                  <span className={s.ba}><em>Before</em>{before}</span>
+                  <span className={s.ba}><em>After</em>{after}</span>
+                  <span className={s.rule}>{rule}</span>
+                </li>
+              ))}
+            </ol>
+          </article>
+        </section>
+
+        <section className={s.block}>
+          <h2><span className={s.num}>03</span>Key decisions</h2>
 
           <article className={s.decision}>
             <h3>1. A coloured stage instead of a form</h3>
+            <p className={s.ruleLine}>The most important thing gets the stage.</p>
             <div className={s.prose}>
               <p>I tried three directions with the same screens and text. <em>Page</em> shows your words like a quiet sheet of paper. <em>Instrument</em> works like a recorder and shows every state. <em>Stage</em> is a block of colour that holds the most important thing on the screen. I chose Stage because it changes with each state, and on the result page the post sits on it like a real card.</p>
             </div>
@@ -161,6 +193,7 @@ export default function DenloCaseStudy() {
 
           <article className={s.decision}>
             <h3>2. Every image needs a main subject</h3>
+            <p className={s.ruleLine}>Every image needs a reason to exist.</p>
             <div className={s.prose}>
               <p>The image cards all looked the same. Each one was a line of text plus a decoration that had nothing to do with the post. My rule: every image has a main subject taken from the post, like a number, a comparison, a conversation, a list, a question or a quote.</p>
               <p>Now Denlo chooses the scene and the words to highlight, and adds a handwritten note from your own words. It never shows a number you didn’t say, so the images can’t make up facts. Carousels now tell a story, with one line running across all the slides.</p>
@@ -174,23 +207,8 @@ export default function DenloCaseStudy() {
           </article>
 
           <article className={s.decision}>
-            <h3>3. Withdrawing the first submission</h3>
-            <div className={s.prose}>
-              <p>I submitted 1.0 for review on 28 September. The next morning, I withdrew it. I hadn’t researched the App Store page, and the flows were based on guesses, not on common standards. There were no users yet, so fixing it then only took a day. Fixing it after launch would take much longer.</p>
-            </div>
-            <ol className={`${s.cards} ${s.fixCards}`}>
-              {FIXES.map(([title, before, after]) => (
-                <li key={title}>
-                  <strong>{title}</strong>
-                  <span className={s.ba}><em>Before</em>{before}</span>
-                  <span className={s.ba}><em>After</em>{after}</span>
-                </li>
-              ))}
-            </ol>
-          </article>
-
-          <article className={s.decision}>
-            <h3>4. Motion only in the key moments</h3>
+            <h3>3. Motion only in the key moments</h3>
+            <p className={s.ruleLine}>Motion shows progress, not decoration.</p>
             <div className={s.prose}>
               <p>The app worked, but it felt flat. The only animation was a fade. I didn’t want to animate everything, so I added motion to three key moments. When Reduce Motion is on, they become simple fades.</p>
             </div>
@@ -205,14 +223,15 @@ export default function DenloCaseStudy() {
           </article>
 
           <article className={s.decision}>
-            <h3>5. Asking about your role, not topics</h3>
+            <h3>4. Asking about your role, not topics</h3>
+            <p className={s.ruleLine}>Only ask what you will use.</p>
             <div className={s.prose}>
               <p>Onboarding asked people to choose topics, but every recording already says the topic. So I changed the first question to “What do you do?”. A founder and an engineer would write the same idea in different ways, and Denlo needs this later to learn how you post. Your role only changes the tone and the words. Denlo never writes “As a founder, I…” unless you said it.</p>
             </div>
           </article>
 
           <article className={s.decision}>
-            <h3>6. Small details</h3>
+            <h3>5. Small details</h3>
             <ol className={`${s.cards} ${s.cards2}`}>
               {HONEST.map(([t, d]) => (
                 <li key={t}><strong>{t}</strong><span>{d}</span></li>
@@ -222,21 +241,33 @@ export default function DenloCaseStudy() {
         </section>
 
         <section className={s.block}>
-          <h2><span className={s.num}>03</span>Iteration log</h2>
-          <div className={s.prose}><p>From the first direction to launch. Newest first.</p></div>
-          <div className={s.log}>
-            {LOG.map(([d, w, b], i) => (
-              <div key={i} className={`${s.logRow} ${s.log3}`}>
-                <div className={s.logDate}>{d}</div>
-                <div className={s.logArea}>{w}</div>
-                <div className={s.logWhy}>{b}</div>
-              </div>
+          <h2><span className={s.num}>04</span>Four turning points</h2>
+          <ol className={s.turns}>
+            {TURNS.map(([t, ft, d], i) => (
+              <li key={t}><span className={s.stepN}>0{i + 1}</span><strong>{t}</strong><span className={s.fromTo}>{ft}</span><span>{d}</span></li>
             ))}
-          </div>
+          </ol>
+          <details className={s.more}>
+            <summary>See the full timeline ({LOG.length} changes)</summary>
+            <div className={s.log}>
+              {LOG.map(([d, w, b], i) => (
+                <div key={i} className={`${s.logRow} ${s.log3}`}>
+                  <div className={s.logDate}>{d}</div>
+                  <div className={s.logArea}>{w}</div>
+                  <div className={s.logWhy}>{b}</div>
+                </div>
+              ))}
+            </div>
+          </details>
         </section>
 
         <section className={s.block}>
-          <h2><span className={s.num}>04</span>Outcome</h2>
+          <h2><span className={s.num}>05</span>Outcome</h2>
+          <div className={s.stats}>
+            <div><strong>7 days</strong>From the first design direction to launch on the App Store.</div>
+            <div><strong>1 withdrawal</strong>My choice, so real users would see a finished app.</div>
+            <div><strong className={s.statWord}>Live on the App Store</strong>Denlo 1.0, launched on 2 October 2026.</div>
+          </div>
           <div className={s.prose}>
             <p className={s.big}>Denlo 1.0 <a href="https://apps.apple.com/au/app/denlo-voice-notes-to-posts/id6816117475" target="_blank" rel="noopener">launched on the App Store</a> on 2 October 2026, with the redesign, the new onboarding and paywall, and the new App Store page.</p>
           </div>

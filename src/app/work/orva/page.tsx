@@ -26,10 +26,16 @@ const SNAPSHOT: [string, string][] = [
   ['Users', 'Heart-failure patients. Many are over 65 and have never used a chat app'],
 ];
 
+const PRINCIPLES: [string, string][] = [
+  ['Clear', 'One main action at a time. Big text, and nothing on the screen that the patient doesn’t need yet.'],
+  ['Familiar', 'Use things patients already know, like a simple conversation and the tablet’s own buttons.'],
+  ['Warm, not childish', 'Friendly enough to calm people down, and serious enough to trust with medical information.'],
+];
+
 const CONSTRAINTS: [string, string][] = [
-  ['Older users', 'Many patients are over 65 and have never used a chat app. The text needs to be big, and each screen needs one clear action.'],
+  ['Older users', 'Many patients are over 65 and have never used a chat app.'],
   ['One hospital tablet', 'There is only one device: an 8.7″ tablet, 1340 × 800. People use it in portrait and landscape.'],
-  ['Safe but friendly', 'It gives real medical information, so it has to feel correct and safe. But it should feel warm, not cold like a hospital form.'],
+  ['Medical information', 'It gives real medical information, so it has to feel correct and safe.'],
   ['Room to grow', 'The first version is for heart failure. Later it may cover diabetes, cancer and more, so the brand can’t be only about the heart.'],
   ['Real deadlines', 'The designs had to be ready for a consumer panel and a hospital demo. The developer was building at the same time.'],
 ];
@@ -39,6 +45,13 @@ const STEPS: [string, string][] = [
   ['Client review', 'The founder and the clinical lead reviewed it. Sometimes they also showed it to a consumer panel or hospital staff.'],
   ['Ask first', 'Before each round I asked questions. For example: should the welcome page have one big image, or a step-by-step tutorial? They chose one image, and that decided the layout.'],
   ['Change and record', 'I kept every round in Figma on a dated timeline, so anyone can see what changed and why.'],
+];
+
+const TURNS: [string, string, string][] = [
+  ['The brand became about people', 'medical → human', 'The clinical lead chose two people hugging over a medical cross.'],
+  ['The real tablet changed the navigation', 'sidebar → top bar', 'A sidebar was too wide on an 8.7″ tablet in portrait.'],
+  ['Older users changed the forms', 'many choices → one action', 'Notify Me became one optional line, with no extra consent tick.'],
+  ['The real build changed text-to-speech', 'one player → a speaker on each message', 'And the extra volume sliders were removed.'],
 ];
 
 const LOG: [string, string, string, string][] = [
@@ -84,14 +97,22 @@ export default function OrvaCaseStudy() {
 
       <main className={s.body}>
         <section className={s.block}>
-          <h2><span className={s.num}>01</span>The starting point</h2>
+          <h2><span className={s.num}>01</span>The challenge</h2>
+          <p className={s.question}>How do you make AI health advice easy to understand and easy to trust, for patients who may never have used a chat app?</p>
           <div className={s.split}>
           <div className={s.prose}>
             <p>When I joined, Orva was a basic chatbot on the hospital tablet. The text was small, the AI replies were plain purple bubbles, and there was no brand. It worked. But for an older patient who had never used a chat app, nothing on the screen said <em>this is safe, and it’s for you</em>.</p>
           </div>
           <Fig src="before-chatbot.webp" alt="The original chatbot on the hospital tablet" cap="Before: the client’s ready-made chatbot on the hospital tablet." />
           </div>
-          <h3 className={s.h3}>The limits I designed around</h3>
+          <h3 className={s.h3}>Three rules for every screen</h3>
+          <ol className={s.principles}>
+            {PRINCIPLES.map(([t, d], i) => (
+              <li key={t}><span className={s.stepN}>0{i + 1}</span><strong>{t}</strong><span>{d}</span></li>
+            ))}
+          </ol>
+          <p className={s.quote}>Making things bigger was not enough.<span>The real work was giving patients fewer things to decide.</span></p>
+          <h3 className={s.h3}>The limits I worked with</h3>
           <ol className={s.cards}>
             {CONSTRAINTS.map(([t, d]) => (
               <li key={t}><strong>{t}</strong><span>{d}</span></li>
@@ -100,7 +121,92 @@ export default function OrvaCaseStudy() {
         </section>
 
         <section className={s.block}>
-          <h2><span className={s.num}>02</span>How the project worked</h2>
+          <h2><span className={s.num}>02</span>Key decisions</h2>
+
+          <article className={`${s.decision} ${s.feature}`}>
+            <span className={s.tag}>Clear · Familiar</span>
+            <h3>Remove a control, don’t add one</h3>
+            <ul className={s.pdw}>
+              <li><em>Problem</em>The client’s first build had two volume controls: one in the audio player and one in settings. That meant two places for an older patient to make the same choice.</li>
+              <li><em>Decision</em>Remove both sliders and point to the tablet’s own volume buttons. Put a speaker button on each message, instead of one player for the whole chat.</li>
+              <li><em>Why</em>The easiest control is often the one people already know. And people scroll back through the chat, so a speaker on each message always shows which one is playing.</li>
+            </ul>
+            <Cmp cap="The player: one bar for the whole chat with its own volume. It was replaced by a speaker on the message being read, with pause, stop and “Orva is speaking…”." items={[
+              { src: 'tts-before-player.webp', alt: 'First build: one audio player with a volume slider', label: 'Before', tone: '#F4F1F6' },
+              { src: 'tts-after-playing.webp', alt: 'Redesign: a speaker button and a small player on the message being read', label: 'After', tone: '#EDE6F2', phone: true },
+            ]} />
+            <Cmp cap="Settings: the second volume slider is gone. A note points to the tablet’s volume buttons." items={[
+              { src: 'tts-before-settings.webp', alt: 'First build: text-to-speech settings with a volume slider', label: 'Before', tone: '#F4F1F6' },
+              { src: 'tts-after-settings.webp', alt: 'New text-to-speech settings with a note about the tablet volume', label: 'After', tone: '#EDE6F2', phone: true },
+            ]} />
+          </article>
+
+          <article className={s.decision}>
+            <span className={s.tag}>Clear</span>
+            <h3>Designing for one tablet</h3>
+            <div className={s.prose}>
+              <p>My first chat design had a sidebar with chat history and settings. In a call, the client showed me the real device: an 8.7″ tablet, often used in portrait. The sidebar took up too much space.</p>
+              <p>But the real problem was not screen size. It was attention. A sidebar asked first-time chat users to learn navigation they didn’t need yet. So I replaced it with a small top bar and one long conversation, and designed both portrait and landscape. I also took references and voice playback out of the first version to keep it simple, and added an emergency “Call 000” button.</p>
+            </div>
+            <Cmp cap="The sidebar took up too much space in portrait. The final chat has a top bar, one conversation and A−/A+ text size. Dark mode came later." items={[
+              { src: 'chat-sidebar.webp', alt: 'First chat design with a left sidebar, on a tablet', label: 'Before', tone: '#E9E4EC', fill: true },
+              { src: 'chat-final.webp', alt: 'Final Orva chat screen in portrait', label: 'After', tone: '#EDE6F2', phone: true },
+              { src: 'dark-chat.webp', alt: 'Orva chat in dark mode', label: 'Dark mode', tone: '#2A2730', phone: true },
+            ]} />
+          </article>
+
+          <article className={s.decision}>
+            <span className={s.tag}>Clear</span>
+            <h3>Show the app instead of explaining it</h3>
+            <div className={s.prose}>
+              <p>The first welcome page explained Orva in three text cards. But people who have never heard of Orva won’t read three cards. Before I redesigned it, I asked one question: one big image, or a step-by-step tutorial? They chose one image. So the page became one illustration of a patient using Orva, with Login in the corner.</p>
+              <p>After the client saw it, I made the character look younger. People in their late 50s and older still want to feel young.</p>
+            </div>
+            <Cmp cap="v1 explained Orva with three text cards. The final page shows it with one illustration, and Login is in the corner." items={[
+              { src: 'welcome-v1.webp', alt: 'First welcome page with three text cards and a Login button in the middle', label: 'Before', tone: '#F4F1F6' },
+              { src: 'welcome-final.webp', alt: 'Final Orva welcome screen', label: 'After', tone: '#EDE6F2', phone: true },
+            ]} />
+          </article>
+
+          <article className={s.decision}>
+            <span className={s.tag}>Warm, not childish</span>
+            <h3>A logo about people, not medicine</h3>
+            <div className={s.prose}>
+              <p>A medical cross says “hospital”. But Orva will grow beyond one illness, and it should feel like care, not like a clinic. I tried three ideas, and the clinical lead chose two people hugging inside an “O”. It means <em>care</em>, it works as the “O” in Orva, and it isn’t about one illness.</p>
+            </div>
+            <figure className={s.fig}>
+              <div className={s.trio}>
+                <div><img src={IMG + 'logo-idea1.webp'} alt="Logo idea one: a medical cross" /><span>1 · A medical cross</span></div>
+                <div className={s.chosen}><img src={IMG + 'logo-idea2.webp'} alt="Logo idea two: two people hugging" /><span>2 · Two people hugging ✓</span></div>
+                <div><img src={IMG + 'logo-idea3.webp'} alt="Logo idea three: a chat bubble with a cross" /><span>3 · A chat bubble with a cross</span></div>
+              </div>
+              <figcaption>Three ideas: trust, connection and conversation. The clinical lead chose connection.</figcaption>
+            </figure>
+            <Cmp short cap="Two more rounds on the chosen idea, then the final logo. The icon becomes the “O”." items={[
+              { src: 'logo-iteration.webp', alt: 'Colour versions of the hug logo', label: 'Iterations', tone: '#FFFFFF' },
+              { src: 'logo-final.webp', alt: 'Final Orva logo', label: 'Final', tone: '#FFFFFF' },
+            ]} />
+          </article>
+
+          <article className={s.decision}>
+            <span className={s.tag}>Warm, not childish</span>
+            <h3>A mascot that makes AI feel safe</h3>
+            <div className={s.split}>
+              <div className={s.prose}>
+                <p>Patients need to know who is talking to them. The small robot started as decoration, and became “the face of Orva”: it is next to every AI reply. I added a medical cross so it looks like a care helper, not a toy, but it is still friendly.</p>
+              </div>
+              <figure className={s.fig}>
+                <div className={s.robots}>
+                  <div><img src={IMG + 'robot.webp'} alt="Orva robot mascot before the change" /><span>Before</span></div>
+                  <div><img src={IMG + 'robot-cross.webp'} alt="Orva robot mascot with a medical cross on its band" /><span>After: a cross on the band</span></div>
+                </div>
+              </figure>
+            </div>
+          </article>
+        </section>
+
+        <section className={s.block}>
+          <h2><span className={s.num}>03</span>How the project worked</h2>
           <div className={s.prose}>
             <p>There was no formal research stage. The client team tested my designs with patients and hospital staff, and I changed the designs based on their feedback. Over seven months, this happened through more than 100 emails, Figma comments and video calls.</p>
           </div>
@@ -115,113 +221,43 @@ export default function OrvaCaseStudy() {
         </section>
 
         <section className={s.block}>
-          <h2><span className={s.num}>03</span>Key decisions</h2>
-
-          <article className={s.decision}>
-            <h3>A logo about people, not medicine</h3>
-            <div className={s.prose}>
-              <p>I tried three ideas: a medical cross, a chat bubble with a cross, and two people hugging inside an “O”. The clinical lead chose the hug. It means <em>care</em>, it works as the “O” in Orva, and it isn’t about one illness. After two more rounds, I changed the colour, removed extra shapes, and turned the icon into the full logo.</p>
-            </div>
-            <figure className={s.fig}>
-              <div className={s.trio}>
-                <div><img src={IMG + 'logo-idea1.webp'} alt="Logo idea one: a medical cross" /><span>1 · A medical cross</span></div>
-                <div className={s.chosen}><img src={IMG + 'logo-idea2.webp'} alt="Logo idea two: two people hugging" /><span>2 · Two people hugging ✓</span></div>
-                <div><img src={IMG + 'logo-idea3.webp'} alt="Logo idea three: a chat bubble with a cross" /><span>3 · A chat bubble with a cross</span></div>
-              </div>
-              <figcaption>Three ideas: trust, connection and conversation. The clinical lead chose connection.</figcaption>
-            </figure>
-            <Cmp short cap="Working on the chosen idea, then the final logo. The icon becomes the “O”." items={[
-              { src: 'logo-iteration.webp', alt: 'Colour versions of the hug logo', label: 'Iterations', tone: '#FFFFFF' },
-              { src: 'logo-final.webp', alt: 'Final Orva logo', label: 'Final', tone: '#FFFFFF' },
-            ]} />
-          </article>
-
-          <article className={s.decision}>
-            <h3>Show the app instead of explaining it</h3>
-            <div className={s.prose}>
-              <p>The first welcome page explained Orva in three text cards, with Login in the middle. The feedback was that it needed to catch the eye of people who had never heard of Orva. Before I redesigned it, I asked one question: one big image, or a step-by-step tutorial? They chose one image. So the page became one illustration of a patient using Orva on a tablet, and I moved Login to the corner.</p>
-              <p>After the client saw it, I made the character look younger. People in their late 50s and older still want to feel young.</p>
-            </div>
-            <Cmp cap="v1 explained Orva with three text cards. The final page shows it with one illustration, and Login is in the corner." items={[
-              { src: 'welcome-v1.webp', alt: 'First welcome page with three text cards and a Login button in the middle', label: 'Before', tone: '#F4F1F6' },
-              { src: 'welcome-final.webp', alt: 'Final Orva welcome screen', label: 'After', tone: '#EDE6F2', phone: true },
-            ]} />
-          </article>
-
-          <article className={s.decision}>
-            <h3>A mascot that makes AI feel safe</h3>
-            <div className={s.split}>
-              <div className={s.prose}>
-                <p>The small robot started as decoration. Later it became “the face of Orva”. It is next to every AI reply, so patients always know who is talking. I added a medical cross so it looks like a care helper, not a gadget, but it is still friendly.</p>
-              </div>
-              <figure className={s.fig}>
-                <div className={s.robots}>
-                  <div><img src={IMG + 'robot.webp'} alt="Orva robot mascot before the change" /><span>Before</span></div>
-                  <div><img src={IMG + 'robot-cross.webp'} alt="Orva robot mascot with a medical cross on its band" /><span>After: a cross on the band</span></div>
-                </div>
-              </figure>
-            </div>
-          </article>
-
-          <article className={s.decision}>
-            <h3>Designing for one tablet</h3>
-            <div className={s.prose}>
-              <p>My first chat design had a sidebar on the left with chat history and settings. In a call, the client showed me the real device. It was an 8.7″ tablet, often used in portrait, and the sidebar took up too much space.</p>
-              <p>I moved the navigation into a top bar with a small menu. I kept one long conversation instead of many separate chats, and designed both portrait and landscape at 1340 × 800. To keep the first version simple, I took out references and voice playback. I also added a “Welcome back” screen and an emergency “Call 000” button.</p>
-            </div>
-            <Cmp cap="The sidebar took up too much space in portrait. The final chat has a top bar, one conversation and A−/A+ text size. Dark mode came later." items={[
-              { src: 'chat-sidebar.webp', alt: 'First chat design with a left sidebar, on a tablet', label: 'Before', tone: '#E9E4EC', fill: true },
-              { src: 'chat-final.webp', alt: 'Final Orva chat screen in portrait', label: 'After', tone: '#EDE6F2', phone: true },
-              { src: 'dark-chat.webp', alt: 'Orva chat in dark mode', label: 'Dark mode', tone: '#2A2730', phone: true },
-            ]} />
-          </article>
-
-          <article className={s.decision}>
-            <h3>Fewer controls for older users</h3>
-            <div className={s.prose}>
-              <p>When the client built text-to-speech, there was one floating player with its own volume slider, and a settings window with a second volume slider. I suggested two changes:</p>
-              <ul>
-                <li><strong>A speaker button on each message.</strong> People scroll up and down the chat. With one player for everything, they can lose track of which message is playing. With a button on each message, it is always clear.</li>
-                <li><strong>No extra volume control.</strong> The tablet already has volume buttons. Another slider is one more thing older users can get wrong. So I removed it and added a note about the tablet’s volume buttons.</li>
-              </ul>
-            </div>
-            <Cmp cap="The player: one bar for the whole chat with its own volume. It was replaced by a speaker on the message being read, with pause, stop and “Orva is speaking…”." items={[
-              { src: 'tts-before-player.webp', alt: 'First build: one audio player with a volume slider', label: 'Before', tone: '#F4F1F6' },
-              { src: 'tts-after-playing.webp', alt: 'Redesign: a speaker button and a small player on the message being read', label: 'After', tone: '#EDE6F2', phone: true },
-            ]} />
-            <Cmp cap="Settings: the second volume slider is gone. A note points to the tablet’s volume buttons." items={[
-              { src: 'tts-before-settings.webp', alt: 'First build: text-to-speech settings with a volume slider', label: 'Before', tone: '#F4F1F6' },
-              { src: 'tts-after-settings.webp', alt: 'New text-to-speech settings with a note about the tablet volume', label: 'After', tone: '#EDE6F2', phone: true },
-            ]} />
-          </article>
-        </section>
-
-        <section className={s.block}>
-          <h2><span className={s.num}>04</span>Iteration log</h2>
-          <div className={s.prose}><p>From the emails and the dated timeline in Figma. Newest first.</p></div>
-          <div className={s.log}>
-            {LOG.map(([d, a, w, b], i) => (
-              <div key={i} className={s.logRow}>
-                <div className={s.logDate}>{d}</div>
-                <div className={s.logArea}>{a}</div>
-                <div className={s.logWhat}>{w}</div>
-                <div className={s.logWhy}>{b}</div>
-              </div>
+          <h2><span className={s.num}>04</span>Four turning points</h2>
+          <ol className={s.turns}>
+            {TURNS.map(([t, ft, d], i) => (
+              <li key={t}><span className={s.stepN}>0{i + 1}</span><strong>{t}</strong><span className={s.fromTo}>{ft}</span><span>{d}</span></li>
             ))}
-          </div>
+          </ol>
+          <details className={s.more}>
+            <summary>See the full timeline ({LOG.length} rounds)</summary>
+            <div className={s.log}>
+              {LOG.map(([d, a, w, b], i) => (
+                <div key={i} className={s.logRow}>
+                  <div className={s.logDate}>{d}</div>
+                  <div className={s.logArea}>{a}</div>
+                  <div className={s.logWhat}>{w}</div>
+                  <div className={s.logWhy}>{b}</div>
+                </div>
+              ))}
+            </div>
+          </details>
         </section>
 
         <section className={s.block}>
           <h2><span className={s.num}>05</span>Outcome</h2>
+          <div className={s.stats}>
+            <div><strong>7 weeks</strong>From the first designs to a working demo for hospital staff, built from my files.</div>
+            <div><strong>100+</strong>Emails, Figma comments and calls with the client team.</div>
+            <div><strong className={s.statWord}>They kept coming back</strong>Patient app → clinician portal → a new project from the founder.</div>
+          </div>
           <div className={s.split}>
           <div className={s.prose}>
-            <p className={s.big}>The designs went straight into the real product. Seven weeks after the first round, the client’s developer built the welcome page and chat from my files, and showed them live to hospital staff. After that, every round was built from the Figma handoff and design system.</p>
+            <p className={s.big}>The designs went straight into the real product. After the first demo, every round was built from the Figma handoff and design system. A year after the first round, the founder contacted me again: Orva is “progressing well” and moving to a clinical trial.</p>
           </div>
           <Fig src="design-system.webp" alt="Orva design system: colour and typography" cap="Part of the design system the developer used." tone="#FFFFFF" />
           </div>
           <div className={s.outcome}>
             <div><div className={s.label}>Delivered</div><p>Logo, mascot, welcome / login / Notify Me flows, patient chat in portrait and landscape, dark mode, text-to-speech controls, and a design system with feedback states.</p></div>
-            <div><div className={s.label}>The client came back</div><p>The client came back to me for each new feature, and later asked me to design the clinician portal. A year after the first round, the founder contacted me again. Orva is “progressing well” and moving to a clinical trial, and he had a new project for me.</p></div>
+            <div><div className={s.label}>Built as designed</div><p>The developer built the screens straight from my Figma handoff and design system. When the coded colours looked wrong, I added the missing states to the design system.</p></div>
             <div><div className={s.label}>What I’d do differently</div><p>Make a clean handoff file from the first day. I only reorganised it in the middle of the project, after comments started getting lost.</p></div>
           </div>
         </section>
