@@ -209,3 +209,15 @@
   .log3 { grid-template-columns: 70px 1fr; }
   .log3 .logWhy { grid-column: 2; }
 }
+
+/* Per-project themes: same skeleton, different skin */
+.themeDenlo { --lilac: #7A3B96; --soft: #F3ECF6; --paper: #FBF8FC; --line: rgba(74, 31, 92, 0.14); --ink: #2A1233; --muted: rgba(42, 18, 51, 0.62); }
+.themeDenlo .hi { background: #4A1F5C; }
+.heroBand { background: #4A1F5C; color: #fff; overflow: hidden; }
+.heroBand .hero { padding-bottom: clamp(48px, 7vw, 96px); }
+.heroBand .hero h1 { color: #fff; }
+.heroBand .eyebrow { color: rgba(255, 255, 255, 0.7); }
+.heroBand .lead { color: rgba(255, 255, 255, 0.86); }
+.heroPhones { display: flex; align-items: center; justify-content: center; }
+.heroPhones img { width: 100%; max-width: 560px; height: auto; filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.35)); }
+.heroBand + .snapshot { padding-top: 40px; }

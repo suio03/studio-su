@@ -70,7 +70,7 @@ const LOG: [string, string, string][] = [
 
 export default function DenloCaseStudy() {
   return (
-    <div className={s.page}>
+    <div className={`${s.page} ${s.themeDenlo}`}>
       <header className={s.top}>
         <a href="/" className={s.brand}>Studio S<span>ü</span></a>
         <nav className={s.topNav}>
@@ -79,18 +79,20 @@ export default function DenloCaseStudy() {
         </nav>
       </header>
 
-      <section className={s.hero}>
-        <div className={s.heroText}>
-          <div className={s.eyebrow}>Case study · iOS app · 2026</div>
-          <h1>Redesigning Denlo in the eight days before launch</h1>
-          <p className={s.lead}>
-            Denlo turns a rough spoken thought into posts ready for X, LinkedIn, Threads, Instagram and TikTok, with image cards and carousels. Version one worked, but felt unfinished. I redesigned it end to end, pulled the first App Store submission to fix the first impression, and shipped on 2 October.
-          </p>
-        </div>
-        <div className={s.heroImg} style={{ background: PROTO, aspectRatio: '1 / 1' }}>
-          <img src={IMG + 'stage-light.webp'} alt="Denlo's Create and result screens in the Plum Stage design" style={{ objectFit: 'contain', padding: '28px' }} />
-        </div>
-      </section>
+      <div className={s.heroBand}>
+        <section className={s.hero}>
+          <div className={s.heroText}>
+            <div className={s.eyebrow}>Case study · iOS app · 2026</div>
+            <h1>Redesigning Denlo in the eight days before launch</h1>
+            <p className={s.lead}>
+              Denlo turns a rough spoken thought into posts ready for X, LinkedIn, Threads, Instagram and TikTok, with image cards and carousels. Version one worked, but felt unfinished. I redesigned it end to end, pulled the first App Store submission to fix the first impression, and shipped on 2 October.
+            </p>
+          </div>
+          <div className={s.heroPhones}>
+            <img src={IMG + 'hero-phones.webp'} alt="Denlo's Create and result screens in the Plum Stage design, dark mode" />
+          </div>
+        </section>
+      </div>
 
       <section className={s.snapshot}>
         {SNAPSHOT.map(([k, v]) => (
