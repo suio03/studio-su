@@ -55,7 +55,7 @@ type State = {
 };
 
 export default class Home extends React.Component<object, State> {
-  state: State = { mounted: false, st: 0, zoom: 1, vh: 900, px: 12, py: 10, hi: 0, t: 0, hovering: false, tick: 0, slide: 0, mobile: false, canvas: 1440, tops: {}, menu: false };
+  state: State = { mounted: false, st: 0, zoom: 1, vh: 900, px: 0, py: 0, hi: 0, t: 0, hovering: false, tick: 0, slide: 0, mobile: false, canvas: 1440, tops: {}, menu: false };
 
   private _ro: ResizeObserver | null = null;
   private _root = React.createRef<HTMLDivElement>();
@@ -259,8 +259,8 @@ export default class Home extends React.Component<object, State> {
       tx: Math.round(tx),
       pct: Math.round(p * 100),
       counter: '0' + Math.min(6, Math.floor(p * 6) + 1),
-      px: this.state.px,
-      py: this.state.py,
+      px: Math.max(-Math.floor(((eyeW - pupil) / 2) * 0.8), Math.min(Math.floor(((eyeW - pupil) / 2) * 0.8), this.state.px)),
+      py: Math.max(-Math.floor(((eyeH - pupil) / 2) * 0.75), Math.min(Math.floor(((eyeH - pupil) / 2) * 0.75), this.state.py)),
       goTop: this.go(null),
       goWork: this.go('work'),
       goAbout: this.go('about'),
@@ -295,9 +295,15 @@ export default class Home extends React.Component<object, State> {
         const ex = 600;
         const ey = 400 - this.state.st;
         const cl = (val: number, m: number) => Math.max(-m, Math.min(m, val));
-        const lim = Math.round((eyeW - pupil) / 2 + pupil * 0.35);
-        const limY = Math.round((eyeH - pupil) / 2 + pupil * 0.3);
-        this.setState({ px: cl((mx - ex) / 25, lim), py: cl((my - ey) / 25, limY) });
+        // Keep the pupil inside the white of the eye.
+        const lim = Math.floor(((eyeW - pupil) / 2) * 0.8);
+        const limY = Math.floor(((eyeH - pupil) / 2) * 0.75);
+        let x = cl((mx - ex) / 25, lim);
+        let y = cl((my - ey) / 25, limY);
+        // Clamp to an ellipse, so the pupil never touches the edge at the diagonals.
+        const k = Math.hypot(x / (lim || 1), y / (limY || 1));
+        if (k > 1) { x /= k; y /= k; }
+        this.setState({ px: Math.round(x), py: Math.round(y) });
       },
     };
   }
