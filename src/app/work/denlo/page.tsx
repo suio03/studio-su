@@ -5,7 +5,7 @@ import { Fig as SharedFig, Cmp as SharedCmp, type Shot } from '../parts';
 export const metadata: Metadata = {
   title: 'Denlo case study — Suyun Chen · Studio Sü',
   description:
-    'How I redesigned Denlo, an iPhone app that turns a spoken thought into posts for every platform, before its App Store launch.',
+    'How I redesigned Denlo, an iPhone app that turns a voice note into social media posts, before it launched on the App Store.',
 };
 
 const IMG = '/work/denlo-cs/';
@@ -21,57 +21,57 @@ const LILAC = '#EFE8F2';
 const PROTO = '#EEECEA'; // background baked into the prototype mockups
 
 const SNAPSHOT: [string, string][] = [
-  ['Role', 'Product designer: led the redesign, from visual direction and flows to motion and the App Store listing'],
+  ['Role', 'Product designer. I led the redesign: visual style, flows, motion and the App Store page'],
   ['Company', 'Cendro Labs, a small product studio'],
-  ['Timeline', '25 Sep – 2 Oct 2026, redesign to launch'],
-  ['Team', 'Me, plus the engineer who built version one'],
+  ['Timeline', '25 Sep – 2 Oct 2026, from redesign to launch'],
+  ['Team', 'Me, and the engineer who built version one'],
   ['Platform', 'iPhone, iOS 18+, Liquid Glass on iOS 26'],
-  ['Status', 'Live on the App Store since 2 Oct 2026'],
+  ['Status', 'On the App Store since 2 Oct 2026'],
 ];
 
 const SWATCHES: [string, string, string][] = [
-  ['Ultramarine', '#2449F0', 'The original. Cold, and close to system blue.'],
-  ['On Air', '#C73A20', 'Most energy, but red also means error.'],
-  ['Plum', PLUM, 'Chosen. The white post card stands out most.'],
-  ['Ink', '#1A1A1F', 'Most restrained, least memorable.'],
-  ['Tangerine', '#FF7A1A', 'Youngest, but needs dark text.'],
+  ['Ultramarine', '#2449F0', 'The original. Cold, and too close to the iOS system blue.'],
+  ['On Air', '#C73A20', 'Lots of energy, but red also means error.'],
+  ['Plum', PLUM, 'Chosen. The white post card stands out the most.'],
+  ['Ink', '#1A1A1F', 'Calm and safe, but easy to forget.'],
+  ['Tangerine', '#FF7A1A', 'Feels the youngest, but needs dark text.'],
 ];
 
 const MOMENTS: [string, string][] = [
-  ['Writing', 'The key sentence in the transcript lights up, a post card rises and its lines draw in. Two other versions fan out and fall away, and the best one lands with a haptic tap.'],
-  ['Recording', 'A live waveform follows your voice. When you stop, it freezes into the real recording you can play back, on the same purple stage.'],
-  ['Result', 'The post rises, paragraphs appear in order, and Copy turns into a tick.'],
+  ['Writing', 'The key sentence in your words lights up. A post card rises and the lines appear. Two other versions spread out and fade away, and the best one lands with a small vibration.'],
+  ['Recording', 'A live sound wave follows your voice. When you stop, it becomes your real recording, and you can play it back.'],
+  ['Result', 'The post rises, the paragraphs appear one by one, and the Copy button turns into a tick.'],
 ];
 
 const FIXES: [string, string, string][] = [
-  ['Sign in later', 'Sign in with Apple was the first screen, before people saw any value.', 'Welcome → role → audience → Create. Sign-in appears only at the first “Write My Post”, and shows the thought you just recorded as “Saved”.'],
-  ['Price in sight', 'Pricing lived only in Settings, and needed an account to view.', 'A badge on Create shows “2 free left”, or “Get Pro” when you run out, and opens the paywall without signing in.'],
-  ['Sell Pro, not the free tier', 'The paywall spent its space on a Free vs Pro table.', 'One headline, “200 ideas a month, each one ready for every platform”, a strip showing one idea becoming five platforms, and one line about your own free ideas.'],
+  ['Sign in later', 'The first screen was Sign in with Apple, before people saw what the app could do.', 'Welcome → role → audience → Create. Sign-in only appears when you first tap “Write My Post”, and the thought you just recorded shows as “Saved”.'],
+  ['Show the price', 'The price was only in Settings, and you needed an account to see it.', 'A badge on Create shows “2 free left”, or “Get Pro” when you run out. It opens the paywall without signing in.'],
+  ['Sell Pro, not Free', 'Most of the paywall was a Free vs Pro table.', 'One headline, “200 ideas a month, each one ready for every platform”, an image of one idea becoming posts for five platforms, and one line about your free ideas.'],
 ];
 
 const HONEST: [string, string][] = [
-  ['Paused, not Processing', 'A half-finished draft said “Processing” although nothing was running. It now says “Paused” with a Continue button.'],
-  ['Delete account in a sheet', 'It used to open a new page full of repeated warnings. Now it is one short confirmation sheet.'],
-  ['No sparkles', 'I removed the ✨ icon everywhere, the cliché of AI apps, and used Denlo’s own waveform mark instead.'],
-  ['Your Voice', 'Denlo learns only from posts you mark as posted, shows in plain words what it has learned, and one switch turns learning off.'],
+  ['Paused, not Processing', 'An unfinished draft said “Processing”, but nothing was running. Now it says “Paused” and has a Continue button.'],
+  ['Delete account in a sheet', 'It used to open a new page with many warnings. Now it is one short confirmation sheet.'],
+  ['No sparkles', 'Lots of AI apps use the ✨ icon. I removed it everywhere and used Denlo’s own sound-wave logo instead.'],
+  ['Your Voice', 'Denlo only learns from posts you mark as posted. It shows what it has learned in simple words, and one switch turns learning off.'],
 ];
 
 const LOG: [string, string, string][] = [
-  ['2 Oct', '1.0 live on the App Store', 'Second review passed'],
-  ['29 Sep', 'New App Store name, subtitle and screenshots; resubmitted', 'The listing is how people find the app'],
-  ['29 Sep', 'Translation: speak any language, get English posts', 'Most users post in English but think in their own language'],
-  ['29 Sep', 'Pricing page rebuilt around Pro; free tier cut to one line', 'The old page spent its space on the free plan'],
-  ['29 Sep', 'Sparkles icon replaced with the Denlo waveform', 'The ✨ icon is an AI cliché'],
-  ['29 Sep', 'Your Voice; Mark Posted; To Post / Posted in Library', 'The app forgot you between sessions'],
-  ['29 Sep', 'Plan badge on Create; one “Continue where you left off” row', 'Pricing was buried; Create looked empty'],
-  ['29 Sep', 'Onboarding asks your role; animated welcome page', 'Topics added nothing; the welcome page was all text'],
+  ['2 Oct', '1.0 live on the App Store', 'Passed the second review'],
+  ['29 Sep', 'New App Store name, subtitle and screenshots. Submitted again', 'The App Store page is how people find the app'],
+  ['29 Sep', 'Translation: speak in any language, get posts in English', 'Most users post in English but think in their own language'],
+  ['29 Sep', 'Pricing page rebuilt around Pro. Free plan cut to one line', 'The old page was mostly about the free plan'],
+  ['29 Sep', '✨ icon replaced with the Denlo sound wave', 'Too many AI apps use ✨'],
+  ['29 Sep', 'Your Voice, Mark as Posted, and To Post / Posted in the Library', 'The app didn’t remember you between sessions'],
+  ['29 Sep', 'Plan badge on Create. One “Continue where you left off” row', 'The price was hidden, and Create looked empty'],
+  ['29 Sep', 'Onboarding asks your role. Animated welcome page', 'Topics didn’t help, and the welcome page was all text'],
   ['29 Sep', 'Motion for writing, recording and result', 'The app felt flat'],
-  ['29 Sep', 'Sign-in moved to the first “Write My Post”; HIG fixes', 'Asking for an account before any value'],
-  ['29 Sep', 'Withdrew 1.0 from review', 'Listing and flows not ready'],
-  ['28 Sep', 'Delete account as a sheet; onboarding can be skipped', 'A full page for one short confirmation'],
-  ['25 Sep', 'App Store screenshots designed, not raw captures', 'Screenshots sell the app'],
-  ['25 Sep', 'Image scenes and four soft palettes', 'Images felt dead'],
-  ['25 Sep', 'Stage direction, Plum colour, logo colours, walkthrough fixes', 'Version one looked unfinished'],
+  ['29 Sep', 'Sign-in moved to the first “Write My Post”. Fixes from Apple’s design guidelines', 'It asked for an account before showing any value'],
+  ['29 Sep', 'Withdrew 1.0 from review', 'The App Store page and flows were not ready'],
+  ['28 Sep', 'Delete account as a sheet. Onboarding can be skipped', 'A full page was too much for one short confirmation'],
+  ['25 Sep', 'Designed App Store screenshots, not plain screen captures', 'Screenshots help sell the app'],
+  ['25 Sep', 'Image scenes and four soft colour palettes', 'The images all looked the same'],
+  ['25 Sep', 'Stage style, Plum colour, logo colours, fixes from a walkthrough', 'Version one looked unfinished'],
 ];
 
 export default function DenloCaseStudy() {
@@ -89,13 +89,13 @@ export default function DenloCaseStudy() {
         <section className={s.hero}>
           <div className={s.heroText}>
             <div className={s.eyebrow}>Case study · iOS app · 2026</div>
-            <h1>Making Denlo feel finished before it launched</h1>
+            <h1>Making Denlo feel finished before launch</h1>
             <p className={s.lead}>
-              Denlo turns a rough spoken thought into posts ready for X, LinkedIn, Threads, Instagram and TikTok, with image cards and carousels. Version one worked, but felt unfinished. I redesigned it end to end, pulled the first App Store submission to fix the first impression, and shipped on 2 October.
+              Denlo turns a voice note into posts for X, LinkedIn, Threads, Instagram and TikTok, with images and carousels. Version one worked, but it didn’t feel finished. I redesigned the whole app, withdrew the first App Store submission to fix the first impression, and launched on 2 October.
             </p>
           </div>
           <div className={s.heroPhones}>
-            <img src={IMG + 'hero-phones.webp'} alt="Denlo's Create and result screens in the Plum Stage design, dark mode" />
+            <img src={IMG + 'hero-phones.webp'} alt="Denlo's Create and result screens in dark mode" />
           </div>
         </section>
       </div>
@@ -110,15 +110,15 @@ export default function DenloCaseStudy() {
         <section className={s.block}>
           <h2><span className={s.num}>01</span>Where it started</h2>
           <div className={s.prose}>
-            <p>Version one, built by Cendro Labs’ engineer under the working name Riff, had every feature: recording, transcription, a post for each platform, image templates and subscriptions. What it lacked was a reason to trust it, and a reason to pay.</p>
+            <p>Version one had every feature: recording, transcription, a post for each platform, image templates and subscriptions. The Cendro Labs engineer built it under the working name Riff. But it didn’t give people a reason to trust it, or a reason to pay.</p>
             <ul>
-              <li><strong>The result page was boxes inside boxes.</strong> Four nested frames and a repeated title around one post, and the first line of the post sat halfway down the screen.</li>
-              <li><strong>The images were dead.</strong> Every card was one line of text and a decorative block, whatever the post said.</li>
-              <li><strong>Nobody saw the price.</strong> Pricing lived only in Settings, so most free users met the paywall when it blocked them.</li>
+              <li><strong>The result page had boxes inside boxes.</strong> There were four frames and a repeated title around one post, so the post started halfway down the screen.</li>
+              <li><strong>The images all looked the same.</strong> Every card had one line of text and a decoration, no matter what the post said.</li>
+              <li><strong>Nobody saw the price.</strong> The price was only in Settings, so most free users only found out when the paywall stopped them.</li>
             </ul>
-            <p>I started by walking through the app on a real iPhone as a brand-new user, then explored three design directions on the same flows before touching any code.</p>
+            <p>First, I used the app on a real iPhone as a new user. Then I tried three design directions on the same screens before changing any code.</p>
           </div>
-          <Cmp tall cap="Before: the early Riff build, then version one’s Create and result screens." items={[
+          <Cmp tall cap="Before: the early Riff build, then the Create and result screens in version one." items={[
             { src: 'riff-create.webp', alt: 'Early Riff build: a pale green Create screen', label: 'Riff', tone: '#E6ECE7' },
             { src: 'v1-create.webp', alt: 'Version one Create screen in dark green', label: 'v1 Create', tone: '#E6ECE7' },
             { src: 'v1-post.webp', alt: 'Version one result page with nested cards', label: 'v1 Result', tone: '#E6ECE7' },
@@ -129,17 +129,17 @@ export default function DenloCaseStudy() {
           <h2><span className={s.num}>02</span>Key decisions</h2>
 
           <article className={s.decision}>
-            <h3>1. A stage, not a form</h3>
+            <h3>1. A coloured stage instead of a form</h3>
             <div className={s.prose}>
-              <p>I explored three directions on the same flows and copy. <em>Page</em> treats your words as a quiet sheet of paper. <em>Instrument</em> is a reliable recorder that shows every state. <em>Stage</em> is a block of colour that holds whatever matters right now. I chose Stage: it grows with each state, and on the result page the post sits on it like a real object.</p>
+              <p>I tried three directions with the same screens and text. <em>Page</em> shows your words like a quiet sheet of paper. <em>Instrument</em> works like a recorder and shows every state. <em>Stage</em> is a block of colour that holds the most important thing on the screen. I chose Stage because it changes with each state, and on the result page the post sits on it like a real card.</p>
             </div>
-            <Cmp cap="Three directions, same features and copy. Only the design language changes." items={[
+            <Cmp cap="Three directions with the same features and text. Only the visual style changes." items={[
               { src: 'dir-page.webp', alt: 'Page direction', label: 'Page', tone: PROTO },
               { src: 'dir-instrument.webp', alt: 'Instrument direction', label: 'Instrument', tone: PROTO },
               { src: 'dir-stage.webp', alt: 'Stage direction', label: 'Stage ✓', tone: PROTO },
             ]} />
             <div className={s.prose} style={{ marginTop: '36px' }}>
-              <p>The original blue felt cold and close to system blue, so I tested five stage colours with real contrast numbers and chose <strong>Plum</strong>. Purple reads as “AI”, so I set rules: no gradients or glows, brand colour only on the stage, and every button in ink. I recoloured the logo to match, keeping its shape.</p>
+              <p>The original blue felt cold and too close to the iOS system blue. I tried five colours, checked their contrast, and chose <strong>Plum</strong>. Purple often looks like “AI”, so I set some rules: no gradients or glow effects, the brand colour only on the stage, and all buttons in dark ink. I also changed the logo colour to match, but kept its shape.</p>
             </div>
             <div className={s.swatches}>
               {SWATCHES.map(([n, c, d]) => (
@@ -151,7 +151,7 @@ export default function DenloCaseStudy() {
               ))}
             </div>
             <div className={s.prose} style={{ marginTop: '36px' }}>
-              <p>Dark mode first looked muddy: cold greys against warm purple, and post cards darker than the background, like holes. I tinted every surface with plum and lifted the cards above it. A HIG review then raised small text from 3.20:1 to 4.81:1 contrast and removed the logo from inside the app.</p>
+              <p>At first, dark mode looked muddy. The greys were cold next to the warm purple, and the post cards were darker than the background, so they looked like holes. I added a little plum to every surface and made the cards lighter. After checking Apple’s design guidelines (HIG), I raised the contrast of small text from 3.20:1 to 4.81:1, and removed the logo from inside the app.</p>
             </div>
             <Cmp items={[
               { src: 'stage-light.webp', alt: 'Plum Stage in light mode', label: 'Light', tone: PROTO },
@@ -160,23 +160,23 @@ export default function DenloCaseStudy() {
           </article>
 
           <article className={s.decision}>
-            <h3>2. Every image needs a protagonist</h3>
+            <h3>2. Every image needs a main subject</h3>
             <div className={s.prose}>
-              <p>The image cards felt dead because each one was a line of text plus a decoration unrelated to the post. My rule: every image gets a protagonist taken from the content itself, such as a number, a contrast, a conversation, a list, a question or a quote.</p>
-              <p>Denlo now picks the scene and the words to emphasise, and pulls a handwritten note from your own words. It never shows a number you didn’t say, so the visuals can’t invent facts. Carousels became a story, with one line running across the slides.</p>
-              <p>The first palettes were loud. I kept four soft paper tones, Clay, Dusk, Sage and Paper, and let people switch with one tap when the automatic pick is wrong.</p>
+              <p>The image cards all looked the same. Each one was a line of text plus a decoration that had nothing to do with the post. My rule: every image has a main subject taken from the post, like a number, a comparison, a conversation, a list, a question or a quote.</p>
+              <p>Now Denlo chooses the scene and the words to highlight, and adds a handwritten note from your own words. It never shows a number you didn’t say, so the images can’t make up facts. Carousels now tell a story, with one line running across all the slides.</p>
+              <p>The first colour palettes were too loud. I kept four soft paper colours: Clay, Dusk, Sage and Paper. If the automatic choice is wrong, you can change it with one tap.</p>
             </div>
-            <Cmp tall cap="Before: the same lime block on every image. After: scenes built from the post, in four moods." items={[
+            <Cmp tall cap="Before: the same lime block on every image. After: scenes built from the post, in four colour palettes." items={[
               { src: 'v1-image.webp', alt: 'Version one image card with a lime block', label: 'Before', tone: '#E6ECE7' },
               { src: 'store-03.webp', alt: 'Image cards and carousels built from the post', label: 'After', tone: LILAC },
-              { src: 'store-05.webp', alt: 'The same post in four palettes', label: 'Four moods', tone: LILAC },
+              { src: 'store-05.webp', alt: 'The same post in four palettes', label: 'Four palettes', tone: LILAC },
             ]} />
           </article>
 
           <article className={s.decision}>
-            <h3>3. Pull the review, fix the first impression</h3>
+            <h3>3. Withdrawing the first submission</h3>
             <div className={s.prose}>
-              <p>I submitted 1.0 for review on 28 September, then withdrew it the next morning. The App Store listing hadn’t been researched, and the flows were built on our own assumptions rather than standards. With no users yet, fixing it then cost a day; fixing it after launch would cost far more.</p>
+              <p>I submitted 1.0 for review on 28 September. The next morning, I withdrew it. I hadn’t researched the App Store page, and the flows were based on guesses, not on common standards. There were no users yet, so fixing it then only took a day. Fixing it after launch would take much longer.</p>
             </div>
             <ol className={`${s.cards} ${s.fixCards}`}>
               {FIXES.map(([title, before, after]) => (
@@ -190,9 +190,9 @@ export default function DenloCaseStudy() {
           </article>
 
           <article className={s.decision}>
-            <h3>4. Motion only where the magic happens</h3>
+            <h3>4. Motion only in the key moments</h3>
             <div className={s.prose}>
-              <p>The app worked but felt flat: the only animation anywhere was a fade. Instead of decorating everything, I put motion in three moments, and let everything fall back to simple fades with Reduce Motion on.</p>
+              <p>The app worked, but it felt flat. The only animation was a fade. I didn’t want to animate everything, so I added motion to three key moments. When Reduce Motion is on, they become simple fades.</p>
             </div>
             <ol className={`${s.steps} ${s.steps3}`}>
               {MOMENTS.map(([t, d], i) => (
@@ -200,19 +200,19 @@ export default function DenloCaseStudy() {
               ))}
             </ol>
             <div className={s.prose}>
-              <p>The welcome page became an 11-second loop of Speak → Shape → Share instead of paragraphs of text.</p>
+              <p>The welcome page became an 11-second animation, Speak → Shape → Share, instead of paragraphs of text.</p>
             </div>
           </article>
 
           <article className={s.decision}>
-            <h3>5. Ask who you are, not what you post about</h3>
+            <h3>5. Asking about your role, not topics</h3>
             <div className={s.prose}>
-              <p>Onboarding asked people to pick topics, which every recording already states. I changed the first question to “What do you do?”: a founder and an engineer would write the same idea differently, and Denlo needs it later to learn your posting habits. The role only shapes tone and vocabulary. Denlo never writes “As a founder, I…” unless you said it.</p>
+              <p>Onboarding asked people to choose topics, but every recording already says the topic. So I changed the first question to “What do you do?”. A founder and an engineer would write the same idea in different ways, and Denlo needs this later to learn how you post. Your role only changes the tone and the words. Denlo never writes “As a founder, I…” unless you said it.</p>
             </div>
           </article>
 
           <article className={s.decision}>
-            <h3>6. Small honesties</h3>
+            <h3>6. Small details</h3>
             <ol className={`${s.cards} ${s.cards2}`}>
               {HONEST.map(([t, d]) => (
                 <li key={t}><strong>{t}</strong><span>{d}</span></li>
@@ -223,7 +223,7 @@ export default function DenloCaseStudy() {
 
         <section className={s.block}>
           <h2><span className={s.num}>03</span>Iteration log</h2>
-          <div className={s.prose}><p>From first direction to launch, newest first.</p></div>
+          <div className={s.prose}><p>From the first direction to launch. Newest first.</p></div>
           <div className={s.log}>
             {LOG.map(([d, w, b], i) => (
               <div key={i} className={`${s.logRow} ${s.log3}`}>
@@ -238,17 +238,17 @@ export default function DenloCaseStudy() {
         <section className={s.block}>
           <h2><span className={s.num}>04</span>Outcome</h2>
           <div className={s.prose}>
-            <p className={s.big}>Denlo 1.0 <a href="https://apps.apple.com/au/app/denlo-voice-notes-to-posts/id6816117475" target="_blank" rel="noopener">launched on the App Store</a> on 2 October 2026, with the redesign, the new onboarding and paywall, and the App Store listing all in place.</p>
+            <p className={s.big}>Denlo 1.0 <a href="https://apps.apple.com/au/app/denlo-voice-notes-to-posts/id6816117475" target="_blank" rel="noopener">launched on the App Store</a> on 2 October 2026, with the redesign, the new onboarding and paywall, and the new App Store page.</p>
           </div>
-          <Cmp tall cap="The App Store screenshots I designed for launch: composed scenes, not raw captures." items={[
+          <Cmp tall cap="The App Store screenshots I designed for launch. They are designed scenes, not plain screen captures." items={[
             { src: 'store-01.webp', alt: 'App Store screenshot: voice notes to posts', tone: LILAC },
             { src: 'store-02.webp', alt: 'App Store screenshot: every platform', tone: LILAC },
             { src: 'store-04.webp', alt: 'App Store screenshot: your words, your meaning', tone: LILAC },
           ]} />
           <div className={s.outcome}>
-            <div><div className={s.label}>Delivered</div><p>Visual direction and design tokens for light, dark and increased contrast, logo colours, every iPhone screen, motion for the key moments, image scenes and palettes, onboarding, paywall and pricing, and the App Store screenshots.</p></div>
-            <div><div className={s.label}>How I worked</div><p>Designing in clickable prototypes and on a real iPhone instead of static mock-ups, so every decision was checked where people would use it.</p></div>
-            <div><div className={s.label}>What I’d do differently</div><p>Decide the first impression, motion and pricing visibility before the first submission. Withdrawing worked, but it was a correction, not a plan.</p></div>
+            <div><div className={s.label}>Delivered</div><p>Visual style and design tokens for light mode, dark mode and increased contrast, logo colours, every iPhone screen, motion for the key moments, image scenes and palettes, onboarding, paywall and pricing, and the App Store screenshots.</p></div>
+            <div><div className={s.label}>How I worked</div><p>I designed in clickable prototypes and checked them on a real iPhone, not only in static mockups. This way, I could see every decision where people would really use it.</p></div>
+            <div><div className={s.label}>What I’d do differently</div><p>Plan the first impression, the motion and where the price shows before the first submission. Withdrawing worked, but it was a fix, not a plan.</p></div>
           </div>
         </section>
       </main>
