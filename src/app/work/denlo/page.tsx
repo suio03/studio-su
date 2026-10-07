@@ -5,7 +5,7 @@ import { Fig as SharedFig, Cmp as SharedCmp, type Shot } from '../parts';
 export const metadata: Metadata = {
   title: 'Denlo case study — Suyun Chen · Studio Sü',
   description:
-    'How I redesigned Denlo, an iPhone app that turns a spoken thought into posts for every platform, in the eight days before its App Store launch.',
+    'How I redesigned Denlo, an iPhone app that turns a spoken thought into posts for every platform, before its App Store launch.',
 };
 
 const IMG = '/work/denlo-cs/';
@@ -83,7 +83,7 @@ export default function DenloCaseStudy() {
         <section className={s.hero}>
           <div className={s.heroText}>
             <div className={s.eyebrow}>Case study · iOS app · 2026</div>
-            <h1>Redesigning Denlo in the eight days before launch</h1>
+            <h1>Making Denlo feel finished before it launched</h1>
             <p className={s.lead}>
               Denlo turns a rough spoken thought into posts ready for X, LinkedIn, Threads, Instagram and TikTok, with image cards and carousels. Version one worked, but felt unfinished. I redesigned it end to end, pulled the first App Store submission to fix the first impression, and shipped on 2 October.
             </p>
@@ -213,7 +213,7 @@ export default function DenloCaseStudy() {
 
         <section className={s.block}>
           <h2><span className={s.num}>03</span>Iteration log</h2>
-          <div className={s.prose}><p>Eight days from first direction to launch, newest first.</p></div>
+          <div className={s.prose}><p>From first direction to launch, newest first.</p></div>
           <div className={s.log}>
             {LOG.map(([d, w, b], i) => (
               <div key={i} className={`${s.logRow} ${s.log3}`}>
@@ -228,7 +228,7 @@ export default function DenloCaseStudy() {
         <section className={s.block}>
           <h2><span className={s.num}>04</span>Outcome</h2>
           <div className={s.prose}>
-            <p className={s.big}>Denlo 1.0 <a href="https://apps.apple.com/au/app/denlo-voice-notes-to-posts/id6816117475" target="_blank" rel="noopener">launched on the App Store</a> on 2 October 2026, eight days after the first redesign direction and four days after I pulled the first submission.</p>
+            <p className={s.big}>Denlo 1.0 <a href="https://apps.apple.com/au/app/denlo-voice-notes-to-posts/id6816117475" target="_blank" rel="noopener">launched on the App Store</a> on 2 October 2026, with the redesign, the new onboarding and paywall, and the App Store listing all in place.</p>
           </div>
           <Cmp tall cap="The App Store screenshots I designed for launch: composed scenes, not raw captures." items={[
             { src: 'store-01.webp', alt: 'App Store screenshot: voice notes to posts', tone: LILAC },
@@ -237,7 +237,7 @@ export default function DenloCaseStudy() {
           ]} />
           <div className={s.outcome}>
             <div><div className={s.label}>Delivered</div><p>Visual direction and design tokens for light, dark and increased contrast, logo colours, every iPhone screen, motion for the key moments, image scenes and palettes, onboarding, paywall and pricing, and the App Store screenshots.</p></div>
-            <div><div className={s.label}>Speed</div><p>From three directions to a live app in eight days, designing in prototypes and on a real iPhone instead of static mock-ups.</p></div>
+            <div><div className={s.label}>How I worked</div><p>Designing in clickable prototypes and on a real iPhone instead of static mock-ups, so every decision was checked where people would use it.</p></div>
             <div><div className={s.label}>What I’d do differently</div><p>Decide the first impression, motion and pricing visibility before the first submission. Withdrawing worked, but it was a correction, not a plan.</p></div>
           </div>
         </section>
